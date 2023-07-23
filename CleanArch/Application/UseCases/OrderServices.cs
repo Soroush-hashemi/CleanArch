@@ -2,6 +2,7 @@
 using Application.DTOs.Orders;
 using Domain.Entities;
 using Domain.Repositories;
+using Domain.ValueObject.Sheard;
 
 namespace Application.UseCases
 {
@@ -15,7 +16,7 @@ namespace Application.UseCases
         }
         public void AddOrder(AddOrderDto command)               
         {
-            var order = new Order(command.ProductId, command.Count, command.Price);
+            var order = new Order(command.ProductId, command.Count,new Money(command.Price));
             _orderRepository.Add(order);
             // _orderRepository.Save();
         }
@@ -34,7 +35,7 @@ namespace Application.UseCases
             return new OrderDto()
             {
                 Count = order.Count,
-                Price = order.Price,
+                Price = order.Price.Value,
                 Id = order.Id,
                 ProductId = order.ProductId
             };
@@ -45,7 +46,7 @@ namespace Application.UseCases
             return _orderRepository.GetAll().Select(order => new OrderDto()
             {
                 Count = order.Count,
-                Price = order.Price,
+                Price = order.Price.Value,
                 Id = order.Id,
                 ProductId = order.ProductId
             }).ToList();

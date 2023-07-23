@@ -1,16 +1,18 @@
-﻿namespace Domain.Entities
+﻿using Domain.ValueObject.Sheard;
+
+namespace Domain.Entities
 {
     public class Order
     {
         public Guid Id { get; private set; }
         public Guid ProductId { get; private set; }
-        public int Price { get; private set; }
+        public Money Price { get; private set; }
         public int Count { get; private set; }
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
-        public int TotalPrice => Count * Price;
+        public int TotalPrice => Count * Price.Value;
 
-        public Order(Guid productId, int count, int price)
+        public Order(Guid productId, int count, Money price)
         {
             Guard(productId, count, price);
 
@@ -32,12 +34,12 @@
             FinallyDate = DateTime.Now;
         }
 
-        private void Guard(Guid productId, int count, int price)
+        private void Guard(Guid productId, int count, Money price)
         {
             if (productId == Guid.Empty)
                 throw new ArgumentOutOfRangeException();
 
-            if (price < 0)
+            if (price.Value < 0)
                 throw new ArgumentOutOfRangeException();
 
             GuardCount(count);

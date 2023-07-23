@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
     "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\Application.csproj": {
@@ -126,14 +126,14 @@
         }
       }
     },
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\hashe\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

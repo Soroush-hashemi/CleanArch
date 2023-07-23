@@ -10,6 +10,6 @@ namespace Infrastructure.Repositories
         // ماهم اطالاعات داخل دامین رو میخوایم پس باید این کلاس استاتیک باشه 
 
         public List<Product> Products { get; set; } = new List<Product>() { new Product("chips", new Money(12000)) };
-        public List<Order> Orders { get; set; } = new List<Order>() { new Order(Guid.NewGuid(), 1, 12000) };
+        public List<Order> Orders { get; set; } = new List<Order>() { new Order(Guid.NewGuid(), 1,new Money(12000)) };
     }
 }
