@@ -1,6 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Application.UseCases;
 using Domain.Repositories;
+using Infrastructure.Persistence;
 using Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
