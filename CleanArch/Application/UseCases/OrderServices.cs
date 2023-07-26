@@ -16,7 +16,7 @@ namespace Application.UseCases
         }
         public void AddOrder(AddOrderDto command)               
         {
-            var order = new Order(command.ProductId, command.Count,new Money(command.Price));
+            var order = new Order(command.ProductId);
             _orderRepository.Add(order);
             // _orderRepository.Save();
         }
@@ -34,8 +34,8 @@ namespace Application.UseCases
             var order = _orderRepository.GetById(id);
             return new OrderDto()
             {
-                Count = order.Count,
-                Price = order.Price.Value,
+                Count = order.Items.Count,
+                Price = order.TotalPrice,
                 Id = order.Id,
                 ProductId = order.ProductId
             };
@@ -45,8 +45,8 @@ namespace Application.UseCases
         {
             return _orderRepository.GetAll().Select(order => new OrderDto()
             {
-                Count = order.Count,
-                Price = order.Price.Value,
+                Count = order.Items.Count,
+                Price = order.TotalPrice,
                 Id = order.Id,
                 ProductId = order.ProductId
             }).ToList();

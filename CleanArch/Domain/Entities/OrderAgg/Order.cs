@@ -10,7 +10,7 @@ namespace Domain.Entities
         public DateTime FinallyDate { get; private set; }
         public ICollection<OrderItem> Items { get; set; }
 
-        public int TotalPrice;
+        public int TotalPrice { get; private set; }
 
         public Order(Guid productId)
         {
@@ -24,11 +24,12 @@ namespace Domain.Entities
             FinallyDate = DateTime.Now;
         }
 
-        public void AddItem(Guid ProductId, int Count , int Price)
+        public void AddItem(Guid ProductId, int Count, int Price, IOrderDomainService OrderDomainService)
         {
-            if (Items.Any(p => p.ProductId == ProductId))
-                return; 
-            Items.Add(new OrderItem(Id ,Count ,ProductId ,Money.FromTooman(Price)));
+            if (OrderDomainService.IsProductExist(ProductId) == false)
+                throw new ArgumentException("Product is Exist");
+
+            Items.Add(new OrderItem(Id, Count, ProductId, Money.FromTooman(Price)));
             TotalPrice += Count;
         }
 

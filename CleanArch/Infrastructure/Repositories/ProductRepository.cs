@@ -40,5 +40,11 @@ namespace Infrastructure.Repositories
             Add(product);
         }
 
+        public bool IsProductExist(Guid id)
+        {
+            bool IsProductExist = _datacontext.Products.Any(p => p.Id == id);
+            return IsProductExist;
+        }
+
     }
 }
