@@ -2,7 +2,7 @@
 
 namespace Domain;
 
-public class OrderItem
+public class OrderItem : BaseEntity
 {
     public long Id { get; private set; }
     public Guid OrderId { get; protected set; }
@@ -10,7 +10,7 @@ public class OrderItem
     public Guid ProductId { get; private set; }
     public Money Price { get; private set; }
 
-    public OrderItem( Guid OrderId , int Count , Guid ProductId, Money Price)
+    public OrderItem(Guid OrderId, int Count, Guid ProductId, Money Price)
     {
         OrderId = OrderId;
         Count = Count;

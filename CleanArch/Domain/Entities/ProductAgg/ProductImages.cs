@@ -1,6 +1,6 @@
 ﻿namespace Domain;
 
-public class ProductImages
+public class ProductImages : BaseEntity
 {
     public string ImageName { get; private set; }
     public long Id { get; private set; }
@@ -13,7 +13,7 @@ public class ProductImages
 
         if (imageName == null)
             throw new ArgumentNullException(nameof(imageName));
-        
+
         productId = ProductId;
         imageName = ImageName;
     }

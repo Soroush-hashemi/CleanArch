@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Order
+    public class Order : AggregateRoot
     {
         public Guid Id { get; private set; }
         public Guid ProductId { get; private set; }
