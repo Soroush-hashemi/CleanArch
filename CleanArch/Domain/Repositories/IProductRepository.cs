@@ -8,8 +8,8 @@ namespace Domain.Repositories
         void Update(Product product);
         void Remove(Product product);
         List<Product> GetAll();
-        Product GetById(Guid id);
-        bool IsProductExist(Guid id);
+        Product GetById(long id);
+        bool IsProductExist(long id);
 
         // void Save(); در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم 
     }

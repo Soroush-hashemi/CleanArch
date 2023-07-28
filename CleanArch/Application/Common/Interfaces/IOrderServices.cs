@@ -11,7 +11,7 @@ namespace Application.Common.Interfaces
     {
         void AddOrder(AddOrderDto command);
         void FinallyOrder(FinallyOrderDto command);
-        OrderDto GetOrderById(Guid id);
+        OrderDto GetOrderById(long id);
         List<OrderDto> GetOrders();
     }
 }

@@ -3,10 +3,9 @@
 public class ProductImages : BaseEntity
 {
     public string ImageName { get; private set; }
-    public long Id { get; private set; }
-    public Guid ProductId { get; private set; }
+    public long ProductId { get; private set; }
 
-    public ProductImages(Guid productId, string imageName)
+    public ProductImages(long productId, string imageName)
     {
         if (productId == null)
             throw new ArgumentNullException(nameof(productId));

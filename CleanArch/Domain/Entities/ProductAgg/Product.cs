@@ -4,7 +4,7 @@ namespace Domain.Entities
 {
     public class Product : AggregateRoot
     {
-        public Guid Id { get; private set; } // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
+         // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
         public string Title { get; private set; }
         public ICollection<ProductImages> Images { get; private set; }
@@ -15,7 +15,6 @@ namespace Domain.Entities
             Guard(title, price);
             Title = title;
             Price = price;
-            Id = Guid.NewGuid();
         }
 
         public void Edit(string title, Money price)

@@ -8,4 +8,6 @@ public class BaseDomainEvent
     {
         CreationDate = new DateTime();
     }
+
+    
 }

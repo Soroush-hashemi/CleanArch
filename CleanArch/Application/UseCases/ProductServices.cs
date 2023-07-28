@@ -33,7 +33,7 @@ namespace Application.UseCases
             // _productRepository.Save();  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
         }
 
-        public ProductDto GetProductById(Guid productId)
+        public ProductDto GetProductById(long productId)
         {
             var product = _productRepository.GetById(productId);
             return new ProductDto()

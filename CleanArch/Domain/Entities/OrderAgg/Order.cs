@@ -4,17 +4,16 @@ namespace Domain.Entities
 {
     public class Order : AggregateRoot
     {
-        public Guid Id { get; private set; }
-        public Guid ProductId { get; private set; }
+        public long UserId { get; private set; }
+        public long ProductId { get; private set; }
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
         public ICollection<OrderItem> Items { get; set; }
 
         public int TotalPrice { get; private set; }
 
-        public Order(Guid productId)
+        public Order(long productId)
         {
-            Id = Guid.NewGuid();
             ProductId = productId;
         }
 
@@ -22,9 +21,10 @@ namespace Domain.Entities
         {
             IsFinally = true;
             FinallyDate = DateTime.Now;
+            AddDomainEvent(new OrderFinalized(Id, UserId));
         }
 
-        public void AddItem(Guid ProductId, int Count, int Price, IOrderDomainService OrderDomainService)
+        public void AddItem(long ProductId, int Count, int Price, IOrderDomainService OrderDomainService)
         {
             if (OrderDomainService.IsProductExist(ProductId) == false)
                 throw new ArgumentException("Product is Exist");
@@ -33,7 +33,7 @@ namespace Domain.Entities
             TotalPrice += Count;
         }
 
-        public void RemoveItem(Guid ProductId)
+        public void RemoveItem(long ProductId)
         {
             var item = Items.FirstOrDefault(p => p.ProductId == p.ProductId);
             if (item != null)

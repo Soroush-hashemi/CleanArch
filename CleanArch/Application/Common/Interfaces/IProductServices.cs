@@ -11,7 +11,7 @@ namespace Application.Common.Interfaces
     {
         void AddProduct(AddProductDto command);
         void EditProduct(EditProductDto command);
-        ProductDto GetProductById(Guid productId);
+        ProductDto GetProductById(long productId);
         List<ProductDto> GetProducts();
     }
 }

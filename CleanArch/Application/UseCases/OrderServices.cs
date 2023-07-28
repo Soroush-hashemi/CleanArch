@@ -29,7 +29,7 @@ namespace Application.UseCases
             // _orderRepository.Save();
         }
 
-        public OrderDto GetOrderById(Guid id)
+        public OrderDto GetOrderById(long id)
         {
             var order = _orderRepository.GetById(id);
             return new OrderDto()

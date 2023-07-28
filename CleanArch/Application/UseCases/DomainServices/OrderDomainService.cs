@@ -12,7 +12,7 @@ public class OrderDomainService : IOrderDomainService
         _productRepository = productRepository;
     }
 
-    public bool IsProductExist(Guid ProductId)
+    public bool IsProductExist(long ProductId)
     {
         var IsProductExist = _productRepository.IsProductExist(ProductId);
 

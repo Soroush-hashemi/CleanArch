@@ -4,13 +4,12 @@ namespace Domain;
 
 public class OrderItem : BaseEntity
 {
-    public long Id { get; private set; }
     public Guid OrderId { get; protected set; }
     public int Count { get; private set; }
     public Guid ProductId { get; private set; }
     public Money Price { get; private set; }
 
-    public OrderItem(Guid OrderId, int Count, Guid ProductId, Money Price)
+    public OrderItem(long OrderId, int Count, long ProductId, Money Price)
     {
         OrderId = OrderId;
         Count = Count;
