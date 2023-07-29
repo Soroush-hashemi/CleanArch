@@ -15,6 +15,8 @@ public class User : AggregateRoot
 
     public User Register(string name, Email email, string family)
     {
-        return new User(name, family, email);
+        var User = new User(name, family, email);
+        User.AddDomainEvent(new UserRegistered(User.Id, User.Email));
+        return User;
     }
 }
