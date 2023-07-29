@@ -12,9 +12,9 @@ namespace Domain.Entities
 
         public int TotalPrice { get; private set; }
 
-        public Order(long productId)
+        public Order(long userId)
         {
-            ProductId = productId;
+            UserId = userId;
         }
 
         public void Finally()
