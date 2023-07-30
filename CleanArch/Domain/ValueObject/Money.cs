@@ -1,4 +1,4 @@
-﻿namespace Domain.ValueObject.Sheard;
+﻿namespace Domain.Base;
 
 public class Money : BaseValueObject
 {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {}
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hashe\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -18,7 +18,7 @@ namespace Infrastructure.Repositories
             return _datacontext.Products.ToList();
         }
 
-        public Product GetById(Guid id)
+        public Product GetById(long id)
         {
             return _datacontext.Products.FirstOrDefault(p => p.Id == id);
         }   
@@ -40,7 +40,7 @@ namespace Infrastructure.Repositories
             Add(product);
         }
 
-        public bool IsProductExist(Guid id)
+        public bool IsProductExist(long id)
         {
             bool IsProductExist = _datacontext.Products.Any(p => p.Id == id);
             return IsProductExist;

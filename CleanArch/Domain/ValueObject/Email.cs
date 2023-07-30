@@ -1,6 +1,8 @@
-﻿namespace Domain;
+﻿using Domain.Base;
 
-public class Email
+namespace Domain;
+
+public class Email : BaseValueObject
 {
     public string EmailType { get; }
     public Email(string email)

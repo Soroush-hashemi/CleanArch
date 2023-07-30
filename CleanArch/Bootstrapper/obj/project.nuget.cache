@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nC8+jBOBUdlfB34qVMI+xnZrhpO1pUehNV1LhnnMnqYLdzM5zVvx5R92onX4tvH1uny/9VjtH8xYN6u+d7qZVA==",
+  "dgSpecHash": "30X1FY14uPqOsybLBWgvQb1XBOMAT+jdpCX4VvcAx9QjpHqeGQRLuAj1NfpF8uVEdLR2Bd1H0EHgXpxLtrB8Cg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj",
+  "projectFilePath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hashe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],

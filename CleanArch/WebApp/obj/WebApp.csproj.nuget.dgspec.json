@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj": {}
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\hashe\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\obj\\",
+        "outputPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

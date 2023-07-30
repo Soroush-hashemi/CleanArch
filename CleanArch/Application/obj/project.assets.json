@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\hashe\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\obj\\",
+      "outputPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj"
+            "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Domain\\Domain.csproj"
             }
           }
         }

@@ -346,11 +346,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\Web.csproj",
+      "projectUniqueName": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\Web.csproj",
+      "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\Web.csproj",
       "packagesPath": "C:\\Users\\hashe\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\obj\\",
+      "outputPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -372,8 +372,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj": {
-              "projectPath": "c:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj"
+            "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj": {
+              "projectPath": "C:\\Users\\hashe\\Desktop\\Clean Arch\\CleanArch\\Bootstrapper\\Bootstrapper.csproj"
             }
           }
         }

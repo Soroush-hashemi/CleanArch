@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain;
+namespace Domain.Base;
 
 public class AggregateRoot : BaseEntity
 {

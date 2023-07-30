@@ -1,4 +1,6 @@
-﻿namespace Domain;
+﻿using Domain.Base;
+
+namespace Domain;
 
 public class ProductImages : BaseEntity
 {

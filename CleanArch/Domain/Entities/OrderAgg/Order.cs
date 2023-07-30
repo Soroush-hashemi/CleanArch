@@ -1,4 +1,5 @@
-﻿using Domain.ValueObject.Sheard;
+﻿using Domain.Base;
+using Domain.Exception;
 
 namespace Domain.Entities
 {
@@ -27,7 +28,7 @@ namespace Domain.Entities
         public void AddItem(long ProductId, int Count, int Price, IOrderDomainService OrderDomainService)
         {
             if (OrderDomainService.IsProductExist(ProductId) == false)
-                throw new ArgumentException("Product is Exist");
+                ProductNotFoundException.Check();
 
             Items.Add(new OrderItem(Id, Count, ProductId, Money.FromTooman(Price)));
             TotalPrice += Count;
@@ -35,10 +36,8 @@ namespace Domain.Entities
 
         public void RemoveItem(long ProductId)
         {
-            var item = Items.FirstOrDefault(p => p.ProductId == p.ProductId);
-            if (item != null)
-                throw new Exception("Is null!");
-
+            var item = Items.FirstOrDefault(p => p.ProductId == ProductId);
+            NullOrEmptyException.CheckObject(item,"OrderItem");
             Items.Remove(item);
             TotalPrice -= item.Count;
         }

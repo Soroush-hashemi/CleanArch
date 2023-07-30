@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
             return _datacontext.Orders.ToList();
         }
 
-        public Order GetById(Guid id)
+        public Order GetById(long id)
         {
             return _datacontext.Orders.FirstOrDefault(o => o.Id == id);
         }
