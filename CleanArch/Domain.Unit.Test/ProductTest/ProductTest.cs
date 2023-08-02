@@ -43,5 +43,16 @@ public class ProductTest
         action.Should().Throw<NotImplementedException>().WithMessage("title is null");
     }
 
+    [Fact]
+    public void Edit_Should_Update_Product_when_Data_IsOk()
+    {
+        var product = _productBuilder.SetTitle("TestOne").SetMoney(1000000).Build();
+
+        product.Edit("TestTwo", new Base.Money(10000));
+         
+        product.Title.Should().Be("TestTwo");
+        product.Price.Value.Should().Be(10000);
+    }
+
 }
 
