@@ -37,7 +37,7 @@ namespace Domain.Entities
         public void RemoveItem(long ProductId)
         {
             var item = Items.FirstOrDefault(p => p.ProductId == ProductId);
-            NullOrEmptyException.CheckObject(item,"OrderItem");
+            NullOrEmptyException.CheckObject(item);
             Items.Remove(item);
             TotalPrice -= item.Count;
         }

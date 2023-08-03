@@ -7,6 +7,8 @@ internal class ProductBuilder
 {
     private string Title = "Test";
     private Money Price = new Money(1000000);
+    private string _images = "testImage";
+
 
     public ProductBuilder SetTitle(string title)
     {
@@ -17,6 +19,12 @@ internal class ProductBuilder
     public ProductBuilder SetMoney(int rialPrice)
     {
         Price = new Money(rialPrice);
+        return this;
+    }
+
+    public ProductBuilder AddImage(string imageName)
+    {
+        _images = imageName;
         return this;
     }
 

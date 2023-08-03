@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Entities;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Domain.Exception
@@ -23,10 +24,24 @@ namespace Domain.Exception
                 throw new NotImplementedException($"{NameofField} is null");
         }
 
-        public static void CheckObject(object Value, string NameofField)
+        public static void CheckMoney(Money money, string NameofField)
+        {
+            if (money == new Money(0))
+                throw new NotImplementedException($"{NameofField} is Not Valid");
+        }
+
+        public static void CheckObject(object Value)
         {
             if (IsNullOrEmptyObj(Value))
-                throw new NotImplementedException($"{NameofField} is null");
+                throw new NotImplementedException("is Not Valid");
+        }
+
+        public static void CheckImage(long productId, string imageName)
+        {
+            if (string.IsNullOrWhiteSpace(imageName))
+                throw new NotImplementedException("ImageName Is Null");
+            if (string.IsNullOrEmpty(imageName))
+                throw new NotImplementedException("ImageName Is Null");
         }
 
 
@@ -34,7 +49,5 @@ namespace Domain.Exception
         {
             return (value == null) ? true : false;
         }
-
-
     }
 }

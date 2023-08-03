@@ -5,9 +5,6 @@ public class Money : BaseValueObject
     public int Value { get; }
     public Money(int Rial)
     {
-        if (Rial < 0)
-            throw new ArgumentOutOfRangeException("");
-
         Value = Rial;
     }
 
@@ -29,11 +26,6 @@ public class Money : BaseValueObject
     public static Money operator -(Money FirstMoney, Money SecondMoney)
     {
         return new Money(FirstMoney.Value + SecondMoney.Value);
-    }
-
-    public override string ToString()
-    {
-        return Value.ToString("#,0");
     }
 }
 
