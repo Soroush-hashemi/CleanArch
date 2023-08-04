@@ -27,23 +27,14 @@ namespace Domain.Exception
         public static void CheckMoney(Money money, string NameofField)
         {
             if (money == new Money(0))
-                throw new NotImplementedException($"{NameofField} is Not Valid");
+                throw new NotImplementedException($"{NameofField} is not valid");
         }
 
         public static void CheckObject(object Value)
         {
             if (IsNullOrEmptyObj(Value))
-                throw new NotImplementedException("is Not Valid");
+                throw new NotImplementedException("is not valid");
         }
-
-        public static void CheckImage(long productId, string imageName)
-        {
-            if (string.IsNullOrWhiteSpace(imageName))
-                throw new NotImplementedException("ImageName Is Null");
-            if (string.IsNullOrEmpty(imageName))
-                throw new NotImplementedException("ImageName Is Null");
-        }
-
 
         private static bool IsNullOrEmptyObj([NotNullWhen(false)] object? value)
         {

@@ -8,7 +8,7 @@ namespace Domain.Entities
          // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
         public string Title { get; private set; }
-        public ICollection<ProductImages> Images { get; private set; }
+        public ICollection<ProductImage> Images { get; private set; }
 
         // پراپرتی های بالا به دلیل پرایوت بودن ست نمیشن و نال میمونن پس باید از این کانستراکتور استفاده بکنیم
         public Product(string title, Money price)
@@ -16,7 +16,7 @@ namespace Domain.Entities
             Garud(title ,price);
             Title = title;
             Price = price;
-            Images = new List<ProductImages>();
+            Images = new List<ProductImage>();
         }
 
         public void Edit(string title, Money price)
@@ -28,8 +28,8 @@ namespace Domain.Entities
 
         public void AddImage(string ImageName)
         {
-            NullOrEmptyException.CheckImage(Id , ImageName);
-            Images.Add(new ProductImages(Id, ImageName));
+            NullOrEmptyException.CheckString(ImageName , "ImageName");
+            Images.Add(new ProductImage(Id, ImageName));
         }
 
         public void RemoveImage(long Id)
