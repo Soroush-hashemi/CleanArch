@@ -1,10 +1,14 @@
-﻿namespace Domain.Base;
+﻿using Domain.Exception;
+
+namespace Domain.Base;
 
 public class Money : BaseValueObject
 {
     public int Value { get; }
     public Money(int Rial)
     {
+        if (Rial < 0)
+            throw new NotImplementedException("money is not valid");
         Value = Rial;
     }
 
@@ -15,7 +19,7 @@ public class Money : BaseValueObject
 
     public static Money FromTooman(int value)
     {
-        return new Money(value* 10);
+        return new Money(value / 10);
     }
 
     public static Money operator +(Money FirstMoney, Money SecondMoney)
@@ -25,7 +29,7 @@ public class Money : BaseValueObject
 
     public static Money operator -(Money FirstMoney, Money SecondMoney)
     {
-        return new Money(FirstMoney.Value + SecondMoney.Value);
+        return new Money(FirstMoney.Value - SecondMoney.Value);
     }
 }
 
