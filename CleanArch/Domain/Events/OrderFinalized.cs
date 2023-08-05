@@ -8,7 +8,7 @@ public class OrderFinalized : BaseDomainEvent
     public long UserId { get; set; }
     public OrderFinalized(long orderId, long userId)
     {
-        userId = UserId;
-        OrderId = OrderId;
+        OrderId = orderId;
+        UserId = userId;
     }
 }
