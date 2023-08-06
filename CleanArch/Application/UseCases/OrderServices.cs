@@ -34,7 +34,7 @@ namespace Application.UseCases
             return new OrderDto()
             {
                 Count = order.Items.Count,
-                Price = order.TotalPrice,
+                Price = order.TotalItem,
                 Id = order.Id,
                 ProductId = order.ProductId
             };
@@ -45,7 +45,7 @@ namespace Application.UseCases
             return _orderRepository.GetAll().Select(order => new OrderDto()
             {
                 Count = order.Items.Count,
-                Price = order.TotalPrice,
+                Price = order.TotalItem,
                 Id = order.Id,
                 ProductId = order.ProductId
             }).ToList();

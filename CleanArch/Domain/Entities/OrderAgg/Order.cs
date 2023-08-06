@@ -10,12 +10,12 @@ namespace Domain.Entities
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
         public ICollection<OrderItem> Items { get; set; }
-
-        public int TotalPrice { get; private set; }
+        public int TotalItem { get; private set; }
 
         public Order(long userId)
         {
             UserId = userId;
+            Items = new List<OrderItem>();
         }
 
         public void Finally()
@@ -31,15 +31,18 @@ namespace Domain.Entities
                 ProductNotFoundException.Check();
 
             Items.Add(new OrderItem(Id, Count, ProductId, Money.FromTooman(Price)));
-            TotalPrice += Count;
+            TotalItem += Count;
         }
 
         public void RemoveItem(long ProductId)
         {
             var item = Items.FirstOrDefault(p => p.ProductId == ProductId);
-            NullOrEmptyException.CheckObject(item);
+
+            //if (item == null)
+                NullOrEmptyException.CheckObject(item);
+
             Items.Remove(item);
-            TotalPrice -= item.Count;
+            TotalItem -= item.Count;
         }
     }
 }

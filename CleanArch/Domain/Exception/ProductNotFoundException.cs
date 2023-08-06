@@ -6,12 +6,12 @@ namespace Domain.Exception
     {
         public ProductNotFoundException()
         {
-            
+
         }
 
         public static void Check()
         {
-
+            throw new NotImplementedException("product not exist");
         }
     }
 }

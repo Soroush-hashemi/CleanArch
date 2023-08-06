@@ -22,14 +22,6 @@ internal class ProductBuilder
         return this;
     }
 
-    public ProductBuilder AddImage(string imageName)
-    {
-        _images = imageName;
-        return this;
-    }
-
     public Product Build()
     { return new Product(Title, Price); }
 }
-
-

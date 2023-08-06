@@ -9,11 +9,11 @@ public class OrderItem : BaseEntity
     public long ProductId { get; private set; }
     public Money Price { get; private set; }
 
-    public OrderItem(long OrderId, int Count, long ProductId, Money Price)
+    public OrderItem(long orderId, int count, long productId, Money price)
     {
-        OrderId = OrderId;
-        Count = Count;
-        ProductId = ProductId;
-        Price = Price;
+        OrderId = orderId;
+        Count = count;
+        ProductId = productId;
+        Price = price;
     }
 }
