@@ -25,7 +25,7 @@ namespace Domain.Entities
             AddDomainEvent(new OrderFinalized(Id, UserId));
         }
 
-        public void AddItem(long ProductId, int Count, int Price, IOrderDomainService OrderDomainService)
+        public void AddItem(long ProductId, int Count, int Price, IOrderDomainService OrderDomainService) // متد انجکشن
         {
             if (OrderDomainService.IsProductExist(ProductId) == false)
                 ProductNotFoundException.Check();

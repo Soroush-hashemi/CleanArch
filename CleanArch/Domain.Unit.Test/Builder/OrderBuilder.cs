@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.Base;
+using Domain.Entities;
 using NSubstitute;
 
 namespace Domain.Unit.Test.Builder
@@ -25,5 +26,12 @@ namespace Domain.Unit.Test.Builder
         {
             return new Order(1);
         }
+
+        public OrderItem CreateOrderItem()
+        {
+            return new OrderItem(1, 2, 1, new Money(19000));
+        }
+
+
     }
 }
