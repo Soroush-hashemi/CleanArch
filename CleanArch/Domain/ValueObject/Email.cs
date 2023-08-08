@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Exception;
 
 namespace Domain;
 
@@ -7,6 +8,7 @@ public class Email : BaseValueObject
     public string EmailType { get; }
     public Email(string email)
     {
+        NullOrEmptyException.CheckString(email, "Email");
         EmailType = email;
     }
 
@@ -19,5 +21,4 @@ public class Email : BaseValueObject
     {
         return new Email(Email + "Yahoo.com");
     }
-
 }
