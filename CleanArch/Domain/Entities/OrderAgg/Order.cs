@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Events;
 using Domain.Exception;
 
 namespace Domain.Entities

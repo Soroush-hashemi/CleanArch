@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Events;
 using Domain.Exception;
 
 namespace Domain;
@@ -17,11 +18,10 @@ public class User : AggregateRoot
         Email = email;
     }
 
-    public User Register(string name, Email email, string family)
+    public void RegisterEvent(string name, Email email, string family)
     {
         var User = new User(name, family, email);
-        User.AddDomainEvent(new UserRegistered(User.Id, User.Email));
-        return User;
+        AddDomainEvent(new UserRegistered(User.Id, User.Email));
     }
 
     public void Garud(string name, string family)

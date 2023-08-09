@@ -1,6 +1,6 @@
 ﻿using Domain.Base;
 
-namespace Domain;
+namespace Domain.Events;
 
 public class UserRegistered : BaseDomainEvent
 {

@@ -1,6 +1,6 @@
 ﻿using Domain.Base;
 
-namespace Domain.Entities;
+namespace Domain.Events;
 
 public class OrderFinalized : BaseDomainEvent
 {
