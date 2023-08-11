@@ -1,5 +1,4 @@
-﻿
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Repositories;
 using Infrastructure.Persistence;
 
@@ -39,6 +38,11 @@ namespace Infrastructure.Repositories
             var OldOrder = GetById(order.Id);
             Remove(OldOrder);
             Add(order);
+        }
+
+        public void Save()
+        {
+            //
         }
     }
 }

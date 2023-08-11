@@ -9,7 +9,6 @@ namespace Domain.Repositories
         void Remove(Order order);
         List<Order> GetAll();
         Order GetById(long id);
-
-        // void Save(); در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم 
+        void Save(); //  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
     } 
 }

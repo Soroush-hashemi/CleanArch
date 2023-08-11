@@ -14,8 +14,6 @@ namespace Domain.Unit.Test.OrderAggTest
             _orderbuilder = new OrderBuilder();
         }
 
-        //OrderItem(1, 2, 1, new Money(19000));
-
         [Fact]
         public void Constructor_Should_Set_OrderId_In_OrderItem()
         {

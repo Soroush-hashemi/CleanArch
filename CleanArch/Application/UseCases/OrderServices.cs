@@ -15,9 +15,9 @@ namespace Application.UseCases
         }
         public void AddOrder(AddOrderDto command)               
         {
-            var order = new Order(command.ProductId);
+            var order = new Order(command.UserId);
             _orderRepository.Add(order);
-            // _orderRepository.Save();
+            _orderRepository.Save();
         }
 
         public void FinallyOrder(FinallyOrderDto command)
@@ -25,14 +25,15 @@ namespace Application.UseCases
             var order = _orderRepository.GetById(command.Id);
             order.Finally();
             _orderRepository.Update(order);
-            // _orderRepository.Save();
+            _orderRepository.Save();
         }
 
-        public OrderDto GetOrderById(long id)
+        public OrderDto GetOrderById(long UserId)
         {
-            var order = _orderRepository.GetById(id);
+            var order = _orderRepository.GetById(UserId);
             return new OrderDto()
             {
+                UserId = UserId,
                 Count = order.Items.Count,
                 Price = order.TotalItem,
                 Id = order.Id,
@@ -44,6 +45,7 @@ namespace Application.UseCases
         {
             return _orderRepository.GetAll().Select(order => new OrderDto()
             {
+                UserId = order.UserId,
                 Count = order.Items.Count,
                 Price = order.TotalItem,
                 Id = order.Id,

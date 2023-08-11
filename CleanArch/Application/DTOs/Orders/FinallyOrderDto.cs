@@ -8,6 +8,6 @@ namespace Application.DTOs.Orders
 {
     public class FinallyOrderDto
     {
-        public long Id { get; set; }
+        public long Id { get; set; } // OrderId 
     }
 }

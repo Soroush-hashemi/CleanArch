@@ -26,11 +26,13 @@ namespace Infrastructure.Repositories
         public void Add(Product product)
         {
             _datacontext.Products.Add(product);
+            Save();
         }
 
         public void Remove(Product product)
         {
             _datacontext.Products.Remove(product);
+            Save();
         }
 
         public void Update(Product product)
@@ -38,6 +40,7 @@ namespace Infrastructure.Repositories
             var OldProduct = GetById(product.Id);
             Remove(OldProduct);
             Add(product);
+            Save();
         }
 
         public bool IsProductExist(long id)
@@ -46,5 +49,9 @@ namespace Infrastructure.Repositories
             return IsProductExist;
         }
 
+        public void Save()
+        {
+            //
+        }
     }
 }

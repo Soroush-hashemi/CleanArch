@@ -20,7 +20,7 @@ namespace Application.UseCases
             _productRepository.Add(new Product(command.Title , new Money(command.Price))); // اول به دایمن میره که بررسی بشه 
             // بعدا به ریپازیتوری میره 
 
-            // _productRepository.Save();  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
+            _productRepository.Save();//  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
         }
 
         public void EditProduct(EditProductDto command)
@@ -30,7 +30,7 @@ namespace Application.UseCases
             _productRepository.Update(product);
             // اینجا اول به دامین میدیم که قوانین مون رو بررسی بکنه ببینه رعایت شده یا نه 
             // بعدا به ریپازیتوری میدیم که برامون ادیت کنه 
-            // _productRepository.Save();  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
+            _productRepository.Save(); // در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
         }
 
         public ProductDto GetProductById(long productId)
