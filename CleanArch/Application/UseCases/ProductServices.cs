@@ -17,10 +17,11 @@ namespace Application.UseCases
 
         public void AddProduct(AddProductDto command)
         {
-            _productRepository.Add(new Product(command.Title , new Money(command.Price))); // اول به دایمن میره که بررسی بشه 
+            var product = new Product(command.Title, new Money(command.Price));
+            _productRepository.Add(product); // اول به دایمن میره که بررسی بشه 
             // بعدا به ریپازیتوری میره 
 
-            _productRepository.Save();//  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
+            _productRepository.Save(); // در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
         }
 
         public void EditProduct(EditProductDto command)

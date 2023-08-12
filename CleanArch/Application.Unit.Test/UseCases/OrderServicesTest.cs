@@ -61,7 +61,6 @@ namespace Application.Unit.Test.UseCases
                 });
 
             var result = _orderServices.GetOrders();
-
             result.Should().HaveCount(2);
         }
     }
