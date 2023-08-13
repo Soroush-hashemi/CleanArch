@@ -7,51 +7,52 @@ namespace Infrastructure.Repositories
     // ریپازیتوری های داخل دامین اینجا ایمپلیمنت میشن 
     public class ProductRepository : IProductRepository
     {
-        private DataContext _datacontext;
+        private DataContext _context;
         public ProductRepository(DataContext datacontext)
         {
-            _datacontext = datacontext;
+            _context = datacontext;
         }
 
         public List<Product> GetAll()
         {
-            return _datacontext.Products.ToList();
+            return _context.Products.ToList();
         }
 
-        public Product GetById(long id)
+        public async Task<Product> GetById(long id)
         {
-            return _datacontext.Products.FirstOrDefault(p => p.Id == id);
+            var result = _context.Products.FirstOrDefault(p => p.Id == id);
+            return await Task.FromResult(result);
         }   
 
         public void Add(Product product)
         {
-            _datacontext.Products.Add(product);
-            Save();
+            _context.Products.Add(product);
+            SaveChanges();
         }
 
         public void Remove(Product product)
         {
-            _datacontext.Products.Remove(product);
-            Save();
+            _context.Products.Remove(product);
+            SaveChanges();
         }
 
         public void Update(Product product)
         {
-            var OldProduct = GetById(product.Id);
-            Remove(OldProduct);
-            Add(product);
-            Save();
+            //var OldProduct = GetById(product.Id);
+            //Remove(OldProduct);
+            //Add(product);
+            SaveChanges();
         }
 
         public bool IsProductExist(long id)
         {
-            bool IsProductExist = _datacontext.Products.Any(p => p.Id == id);
+            bool IsProductExist = _context.Products.Any(p => p.Id == id);
             return IsProductExist;
         }
 
-        public void Save()
+        public async Task SaveChanges()
         {
-            //
+            // 
         }
     }
 }
