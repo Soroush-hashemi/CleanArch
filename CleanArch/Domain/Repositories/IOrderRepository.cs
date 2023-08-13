@@ -8,7 +8,9 @@ namespace Domain.Repositories
         void Update(Order order);
         void Remove(Order order);
         List<Order> GetAll();
-        Order GetById(long id);
-        void Save(); //  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
+        Task<Order> GetById(long id);
+        Task SaveChanges(); //  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
+
+
     } 
 }

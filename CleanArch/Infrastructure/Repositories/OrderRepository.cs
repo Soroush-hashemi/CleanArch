@@ -7,42 +7,40 @@ namespace Infrastructure.Repositories
     // ریپازیتوری های داخل دامین اینجا ایمپلیمنت میشن 
     public class OrderRepository : IOrderRepository
     {
-        private DataContext _datacontext;
+        private DataContext _context;
         public OrderRepository(DataContext datacontext)
         {
-            _datacontext = datacontext;
+            _context = datacontext;
         }
 
         public List<Order> GetAll()
         {
-            return _datacontext.Orders.ToList();
-        }
-
-        public Order GetById(long id)
-        {
-            return _datacontext.Orders.FirstOrDefault(o => o.Id == id);
+            return _context.Orders.ToList();
         }
 
         public void Add(Order order)
         {
-            _datacontext.Orders.Add(order);
+            _context.Orders.Add(order);
         }
 
         public void Remove(Order order)
         {
-            _datacontext.Orders.Remove(order);
+            _context.Orders.Remove(order);
         }
 
         public void Update(Order order)
         {
-            var OldOrder = GetById(order.Id);
-            Remove(OldOrder);
-            Add(order);
+            // _datacontext.Update(order);
         }
 
-        public void Save()
+        public async Task<Order> GetById(long id)
         {
-            //
+            return await _context.Orders.FirstOrDefaultAsync(f => f.Id == id);
+        }
+
+        public async Task SaveChanges()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }
