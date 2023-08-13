@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories
 
         public async Task<Order> GetById(long id)
         {
-            return await _context.Orders.FirstOrDefaultAsync(f => f.Id == id);
+            return await _context.Orders.FirstOrDefault(f => f.Id == id);
         }
 
         public async Task SaveChanges()
