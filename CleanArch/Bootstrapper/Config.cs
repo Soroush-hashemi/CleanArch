@@ -1,6 +1,8 @@
-﻿using Domain.Repositories;
+﻿using MediatR;
+using Domain.Repositories;
 using Infrastructure.Persistence;
 using Infrastructure.Repositories;
+using Application.Command.Products.Create;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bootstrapper
@@ -11,6 +13,7 @@ namespace Bootstrapper
         {
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
 
             services.AddSingleton<DataContext>();
         }

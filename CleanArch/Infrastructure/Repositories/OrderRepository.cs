@@ -35,12 +35,13 @@ namespace Infrastructure.Repositories
 
         public async Task<Order> GetById(long id)
         {
-            return await _context.Orders.FirstOrDefault(f => f.Id == id);
+            var result = _context.Orders.FirstOrDefault(p => p.Id == id);
+            return await Task.FromResult(result);
         }
 
         public async Task SaveChanges()
         {
-            await _context.SaveChangesAsync();
+            // await _context.SaveChangesAsync();
         }
     }
 }
