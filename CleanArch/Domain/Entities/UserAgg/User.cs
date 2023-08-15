@@ -6,6 +6,10 @@ namespace Domain;
 
 public class User : AggregateRoot
 {
+    private User()
+    {
+        
+    }
     public string Name { get; private set; }
     public Email Email { get; private set; }
     public string Family { get; private set; }

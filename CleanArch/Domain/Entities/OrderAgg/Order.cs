@@ -6,12 +6,18 @@ namespace Domain.Entities
 {
     public class Order : AggregateRoot
     {
+        private Order()
+        {
+            
+        }
         public long UserId { get; private set; }
         public long ProductId { get; private set; }
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
         public ICollection<OrderItem> Items { get; set; }
-        public int TotalItem { get; private set; }
+        public int TotalPrice => Items.Sum(r => r.Price.Value);
+        public int TotalItem { get; set; }
+
 
         public Order(long userId)
         {

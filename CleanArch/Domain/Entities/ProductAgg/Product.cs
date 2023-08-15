@@ -5,7 +5,11 @@ namespace Domain.Entities
 {
     public class Product : AggregateRoot
     {
-         // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
+        private Product()
+        {
+            
+        }
+        // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
         public string Title { get; private set; }
         public ICollection<ProductImage> Images { get; private set; }

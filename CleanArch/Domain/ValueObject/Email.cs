@@ -5,6 +5,10 @@ namespace Domain;
 
 public class Email : BaseValueObject
 {
+    private Email()
+    {
+        
+    }
     public string EmailAddress { get; set; }
     public Email(string email)
     {

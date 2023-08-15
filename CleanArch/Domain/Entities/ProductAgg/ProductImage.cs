@@ -5,6 +5,10 @@ namespace Domain;
 
 public class ProductImage : BaseEntity
 {
+    private ProductImage()
+    {
+        
+    }
     public string ImageName { get; private set; }
     public long ProductId { get; private set; }
 

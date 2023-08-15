@@ -4,6 +4,10 @@ namespace Domain.Base;
 
 public class Money : BaseValueObject
 {
+    private Money()
+    {
+        
+    }
     public int Value { get; }
     public Money(int Rial)
     {

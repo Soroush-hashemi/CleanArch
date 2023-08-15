@@ -4,6 +4,10 @@ namespace Domain;
 
 public class OrderItem : BaseEntity
 {
+    private OrderItem()
+    {
+        
+    }
     public long OrderId { get; protected set; }
     public int Count { get; private set; }
     public long ProductId { get; private set; }
