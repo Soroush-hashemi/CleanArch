@@ -1,11 +1,13 @@
 ﻿using MediatR;
 using Domain.Repositories;
-using Infrastructure.PersistenceMemory;
 using Infrastructure.Repositories;
 using Application.Command.Products.Create;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.Persistence.Ef;
 using Microsoft.EntityFrameworkCore;
+using Application.Command.Products.Edit;
+using Application.Query.Products.GetList;
+using Application.Query.Products.GetById;
 
 namespace Bootstrapper
 {
@@ -15,14 +17,16 @@ namespace Bootstrapper
         {
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(option =>
             {
-                options.UseSqlServer(ConnectionStrings);
-            });
-
-            services.AddSingleton<DataContext>();
+                option.UseSqlServer(ConnectionStrings);
+            });     
         }
     }
 }

@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Application.Command.Products.Create
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Unit>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, long>
     {
         private readonly IProductRepository _repository;
         public CreateProductCommandHandler(IProductRepository repository)
@@ -13,13 +13,13 @@ namespace Application.Command.Products.Create
             _repository = repository;
         }
 
-        public async Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<long> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var product = new Product(request.Title, Money.FromRial(request.Price));
             _repository.Add(product);
-            _repository.SaveChanges();
-
-            return await Unit.Task;
+            await _repository.SaveChanges();
+            return product.Id;
         }
     }
+
 }

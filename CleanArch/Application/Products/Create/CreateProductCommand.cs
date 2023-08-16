@@ -2,7 +2,7 @@
 
 namespace Application.Command.Products.Create
 {
-    public class CreateProductCommand : IRequest<Unit>
+    public class CreateProductCommand : IRequest<long>
     {
         public CreateProductCommand(string title , int price)
         {

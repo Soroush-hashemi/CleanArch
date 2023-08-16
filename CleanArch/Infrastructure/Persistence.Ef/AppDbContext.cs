@@ -24,8 +24,15 @@ namespace Infrastructure.Persistence.Ef
                 option.Property(p => p.Value).HasColumnName("Price"); // اسم ولیو ابجکت رو عوض میکنه 
             });
 
-            modelBuilder.Entity<Product>().OwnsOne(b => b.Price);
-            modelBuilder.Entity<User>().OwnsOne(b => b.Email);
+            modelBuilder.Entity<Product>().OwnsOne(b => b.Price, option =>
+            {
+                option.Property(p => p.Value).HasColumnName("ProductPrice"); // اسم ولیو ابجکت رو عوض میکنه 
+            });
+
+            modelBuilder.Entity<User>().OwnsOne(b => b.Email, option =>
+            {
+                option.Property(p => p.EmailAddress).HasColumnName("Email"); // اسم ولیو ابجکت رو عوض میکنه 
+            });
 
             base.OnModelCreating(modelBuilder);
         }

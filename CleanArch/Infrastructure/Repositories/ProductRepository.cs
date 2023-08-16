@@ -1,58 +1,47 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
-using Infrastructure.PersistenceMemory;
+using Infrastructure.Persistence.Ef;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     // ریپازیتوری های داخل دامین اینجا ایمپلیمنت میشن 
     public class ProductRepository : IProductRepository
     {
-        private DataContext _context;
-        public ProductRepository(DataContext datacontext)
-        {
-            _context = datacontext;
-        }
+        private readonly AppDbContext _context;
 
-        public List<Product> GetAll()
+        public ProductRepository(AppDbContext context)
         {
-            return _context.Products.ToList();
+            _context = context;
+        }
+        public void Add(Product product)
+        {
+            _context.Add(product);
         }
 
         public async Task<Product> GetById(long id)
         {
-            var result = _context.Products.FirstOrDefault(p => p.Id == id);
-            return await Task.FromResult(result);
-        }   
-
-        public void Add(Product product)
-        {
-            _context.Products.Add(product);
-            SaveChanges();
-        }
-
-        public void Remove(Product product)
-        {
-            _context.Products.Remove(product);
-            SaveChanges();
-        }
-
-        public void Update(Product product)
-        {
-            //var OldProduct = GetById(product.Id);
-            //Remove(OldProduct);
-            //Add(product);
-            SaveChanges();
+            return await _context.Products.FirstOrDefaultAsync(f => f.Id == id);
         }
 
         public bool IsProductExist(long id)
         {
-            bool IsProductExist = _context.Products.Any(p => p.Id == id);
-            return IsProductExist;
+            return _context.Products.Any(f => f.Id == id);
+        }
+
+        public void Remove(Product product)
+        {
+            _context.Remove(product);
         }
 
         public async Task SaveChanges()
         {
-            // 
+            await _context.SaveChangesAsync();
+        }
+
+        public void Update(Product product)
+        {
+            _context.Update(product);
         }
     }
 }

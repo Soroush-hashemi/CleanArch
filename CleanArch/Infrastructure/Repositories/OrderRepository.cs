@@ -1,14 +1,14 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
-using Infrastructure.PersistenceMemory;
+using Infrastructure.Persistence.Ef;
 
 namespace Infrastructure.Repositories
 {
     // ریپازیتوری های داخل دامین اینجا ایمپلیمنت میشن 
     public class OrderRepository : IOrderRepository
     {
-        private DataContext _context;
-        public OrderRepository(DataContext datacontext)
+        private AppDbContext _context;
+        public OrderRepository(AppDbContext datacontext)
         {
             _context = datacontext;
         }

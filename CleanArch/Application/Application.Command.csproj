@@ -7,16 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Order\**" />
+    <EmbeddedResource Remove="Order\**" />
+    <None Remove="Order\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Order\Create\" />
-    <Folder Include="Order\Edit\" />
   </ItemGroup>
 
 </Project>
