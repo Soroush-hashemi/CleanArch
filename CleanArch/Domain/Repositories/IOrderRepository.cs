@@ -10,7 +10,5 @@ namespace Domain.Repositories
         List<Order> GetAll();
         Task<Order> GetById(long id);
         Task SaveChanges(); //  در شرایط استفاده از ترانسلکشن ها باید اینو اینجا بسازیم
-
-
     } 
 }

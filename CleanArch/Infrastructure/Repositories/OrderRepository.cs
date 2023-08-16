@@ -8,9 +8,9 @@ namespace Infrastructure.Repositories
     public class OrderRepository : IOrderRepository
     {
         private AppDbContext _context;
-        public OrderRepository(AppDbContext datacontext)
+        public OrderRepository(AppDbContext context)
         {
-            _context = datacontext;
+            _context = context;
         }
 
         public List<Order> GetAll()
@@ -30,7 +30,7 @@ namespace Infrastructure.Repositories
 
         public void Update(Order order)
         {
-            // _datacontext.Update(order);
+            _context.Update(order);
         }
 
         public async Task<Order> GetById(long id)
@@ -41,7 +41,7 @@ namespace Infrastructure.Repositories
 
         public async Task SaveChanges()
         {
-            // await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }
