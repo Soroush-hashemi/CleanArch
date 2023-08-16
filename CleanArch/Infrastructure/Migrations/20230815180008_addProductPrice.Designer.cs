@@ -4,6 +4,7 @@ using Infrastructure.Persistence.Ef;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230815180008_addProductPrice")]
+    partial class addProductPrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,10 +143,6 @@ namespace Infrastructure.Migrations
                             b1.Property<long>("ProductId")
                                 .HasColumnType("bigint");
 
-                            b1.Property<int>("Value")
-                                .HasColumnType("int")
-                                .HasColumnName("ProductPrice");
-
                             b1.HasKey("ProductId");
 
                             b1.ToTable("Products");
@@ -204,8 +202,7 @@ namespace Infrastructure.Migrations
 
                             b1.Property<string>("EmailAddress")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Email");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("UserId");
 
