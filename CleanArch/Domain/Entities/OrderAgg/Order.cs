@@ -15,8 +15,9 @@ namespace Domain.Entities
         public bool IsFinally { get; private set; }
         public DateTime FinallyDate { get; private set; }
         public ICollection<OrderItem> Items { get; set; }
-        public int TotalPrice => Items.Sum(r => r.Price.Value);
         public int TotalItem { get; set; }
+        public int TotalPrice => Items.Sum(r => r.Price.Value);
+
 
 
         public Order(long userId)

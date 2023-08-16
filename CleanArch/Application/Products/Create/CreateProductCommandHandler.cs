@@ -8,17 +8,15 @@ namespace Application.Command.Products.Create
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, long>
     {
         private readonly IProductRepository _repository;
-        private readonly CreateProductCommandValidator _validations;
-        public CreateProductCommandHandler(IProductRepository repository, CreateProductCommandValidator validations)
+        public CreateProductCommandHandler(IProductRepository repository)
         {
             _repository = repository;
-            _validations = validations;
-
         }
 
         public async Task<long> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var ValidatorChecker = _validations.Validate(request);
+            var validations = new CreateProductCommandValidator();
+            var ValidatorChecker = validations.Validate(request);
             if (!ValidatorChecker.IsValid)
                 throw new InvalidDataException(ValidatorChecker.Errors.ToString());
 
@@ -28,5 +26,4 @@ namespace Application.Command.Products.Create
             return product.Id;
         }
     }
-
 }

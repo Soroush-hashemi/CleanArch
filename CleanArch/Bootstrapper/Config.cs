@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Application.Command.Products.Edit;
 using Application.Query.Products.GetList;
 using Application.Query.Products.GetById;
+using Application.Command.Orders.Create;
 
 namespace Bootstrapper
 {
@@ -17,11 +18,17 @@ namespace Bootstrapper
         {
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+        
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
+
 
             services.AddDbContext<AppDbContext>(option =>
             {

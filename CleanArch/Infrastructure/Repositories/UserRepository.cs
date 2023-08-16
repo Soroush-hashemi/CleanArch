@@ -1,11 +1,10 @@
-﻿
-using Domain;
+﻿using Domain;
 using Domain.Repositories;
 using Infrastructure.Persistence.Ef;
 
 namespace Infrastructure.Repositories
 {
-    internal class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private AppDbContext _context;
         public UserRepository(AppDbContext context)
