@@ -13,6 +13,7 @@ namespace Application.Query.Products.GetById
         {
             _context = context;
         }
+
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var Product = await _context.Products.FirstOrDefaultAsync(p => p.Id == request.ProductId);

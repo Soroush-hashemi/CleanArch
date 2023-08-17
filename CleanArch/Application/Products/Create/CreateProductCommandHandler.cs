@@ -15,11 +15,6 @@ namespace Application.Command.Products.Create
 
         public async Task<long> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var validations = new CreateProductCommandValidator();
-            var ValidatorChecker = validations.Validate(request);
-            if (!ValidatorChecker.IsValid)
-                throw new InvalidDataException(ValidatorChecker.Errors.ToString());
-
             var product = new Product(request.Title, Money.FromRial(request.Price));
             _repository.Add(product);
             await _repository.SaveChanges();
