@@ -1,6 +1,6 @@
 ﻿using Domain.Base;
 
-namespace Domain;
+namespace Domain.Entities;
 
 public class OrderItem : BaseEntity
 {

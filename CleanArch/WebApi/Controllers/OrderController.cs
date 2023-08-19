@@ -1,5 +1,4 @@
 ﻿using Application.Command.Orders.Create;
-using Application.Command.Products.Create;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

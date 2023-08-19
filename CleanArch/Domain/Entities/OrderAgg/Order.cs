@@ -19,7 +19,6 @@ namespace Domain.Entities
         public int TotalPrice => Items.Sum(r => r.Price.Value);
 
 
-
         public Order(long userId)
         {
             UserId = userId;

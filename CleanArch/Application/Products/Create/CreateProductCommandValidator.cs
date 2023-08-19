@@ -9,11 +9,10 @@ namespace Application.Command.Products.Create
         {
             RuleFor(t => t.Title)
                 .MinimumLength(3).WithMessage("عنوان باید حداقل 3 کاراکتر باشد")
-                .MaximumLength(50).WithMessage("عنوان باید حداثل 50 کاراکتر باشد");
+                .MaximumLength(50).WithMessage("عنوان باید حداقل 50 کاراکتر باشد");
 
             RuleFor(p => p.Price)
                 .GreaterThan(0).WithMessage("قیمت باید بیشتر از 0 باشد");
-                
         }
     }
 }
