@@ -12,7 +12,7 @@ public class AggregateRoot : BaseEntity
     // به کلاس دامین ایونت بالا کلاس دسترسی پیدا می کنیم بدون اینکه امکان تغییر مقدار آن را داشته باشیم 
     public List<BaseDomainEvent> DomainEvents => _domainEvents;
 
-    public void AddDomainEvent(BaseDomainEvent EventItem)
+    public void AddDomainEvent(BaseDomainEvent EventItem) 
     {
         _domainEvents.Add(EventItem);
     }

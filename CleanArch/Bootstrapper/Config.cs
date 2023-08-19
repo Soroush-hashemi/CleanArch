@@ -11,6 +11,7 @@ using Application.Query.Products.GetById;
 using Application.Command.Orders.Create;
 using Application.Command.Shared;
 using FluentValidation;
+using Application.Command.SmsService;
 
 namespace Bootstrapper
 {
@@ -37,6 +38,8 @@ namespace Bootstrapper
             {
                 option.UseSqlServer(ConnectionStrings);
             });
+
+            services.AddScoped<ISmsService, SmsService>();
         }
     }
 }

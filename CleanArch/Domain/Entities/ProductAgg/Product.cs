@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Events;
 using Domain.Exception;
 
 namespace Domain.Entities
@@ -7,7 +8,7 @@ namespace Domain.Entities
     {
         private Product()
         {
-            
+
         }
         // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
@@ -17,10 +18,11 @@ namespace Domain.Entities
         // پراپرتی های بالا به دلیل پرایوت بودن ست نمیشن و نال میمونن پس باید از این کانستراکتور استفاده بکنیم
         public Product(string title, Money price)
         {
-            Garud(title ,price);
+            Garud(title, price);
             Title = title;
             Price = price;
             Images = new List<ProductImage>();
+            AddDomainEvent(new ProductCreated(Id  , $"{title}"));
         }
 
         public void Edit(string title, Money price)
@@ -32,7 +34,7 @@ namespace Domain.Entities
 
         public void AddImage(string ImageName)
         {
-            NullOrEmptyException.CheckString(ImageName , "ImageName");
+            NullOrEmptyException.CheckString(ImageName, "ImageName");
             Images.Add(new ProductImage(Id, ImageName));
         }
 
@@ -43,7 +45,7 @@ namespace Domain.Entities
             Images.Remove(image);
         }
 
-        public void Garud(string title ,Money price)
+        public void Garud(string title, Money price)
         {
             NullOrEmptyException.CheckString(title, "Title");
             NullOrEmptyException.CheckMoney(price, "Price");

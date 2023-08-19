@@ -1,13 +1,13 @@
-﻿namespace Domain.Base;
+﻿using MediatR;
 
-public class BaseDomainEvent
+namespace Domain.Base;
+
+public class BaseDomainEvent : INotification
 {
     public DateTime CreationDate { get; protected set; }
 
     public BaseDomainEvent()
     {
-        CreationDate = new DateTime();
+        CreationDate = DateTime.Now;
     }
-
-    
 }
