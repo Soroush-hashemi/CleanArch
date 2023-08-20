@@ -1,11 +1,11 @@
 ﻿
 using FluentValidation;
 
-namespace Application.Command.Products.Create
+namespace Application.Command.Products.Edit
 {
-    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    public class EditProductCommandValidator : AbstractValidator<EditProductCommand>
     {
-        public CreateProductCommandValidator()
+        public EditProductCommandValidator()
         {
             RuleFor(t => t.Title)
                 .MinimumLength(3).WithMessage("عنوان باید حداقل 3 کاراکتر باشد")
@@ -13,6 +13,8 @@ namespace Application.Command.Products.Create
 
             RuleFor(p => p.Price)
                 .GreaterThan(0).WithMessage("قیمت معتبر نیست");
+               
+                
         }
     }
 }

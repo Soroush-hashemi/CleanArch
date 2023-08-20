@@ -33,6 +33,7 @@ namespace Bootstrapper
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
 
             services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
+            services.AddValidatorsFromAssembly(typeof(EditProductCommandValidator).Assembly);
 
             services.AddDbContext<AppDbContext>(option =>
             {
