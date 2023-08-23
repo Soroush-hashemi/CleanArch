@@ -12,6 +12,7 @@ using Application.Command.Orders.Create;
 using Application.Command.Shared;
 using FluentValidation;
 using Application.Command.SmsService;
+using Application.Command.Products.Delete;
 
 namespace Bootstrapper
 {
@@ -26,6 +27,8 @@ namespace Bootstrapper
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DeleteProductCommand).Assembly));
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidatorBehavior<,>));
