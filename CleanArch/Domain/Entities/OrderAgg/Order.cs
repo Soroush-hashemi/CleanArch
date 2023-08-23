@@ -8,7 +8,7 @@ namespace Domain.Entities
     {
         private Order()
         {
-            
+
         }
         public long UserId { get; private set; }
         public long ProductId { get; private set; }
@@ -34,7 +34,7 @@ namespace Domain.Entities
 
         public void AddItem(long ProductId, int Count, int Price, IDomainService OrderDomainService) // متد انجکشن
         {
-            if (OrderDomainService.IsProductExist(ProductId) == false)
+            if (OrderDomainService.IsProductExist(ProductId) == false) // یعنی زمانی که پروداکت وجود ندارد 
                 ProductNotFoundException.Check();
 
             Items.Add(new OrderItem(Id, Count, ProductId, Money.FromTooman(Price)));
@@ -45,8 +45,7 @@ namespace Domain.Entities
         {
             var item = Items.FirstOrDefault(p => p.ProductId == ProductId);
 
-            //if (item == null)
-                NullOrEmptyException.CheckObject(item);
+            NullOrEmptyException.CheckObject(item);
 
             Items.Remove(item);
             TotalItem -= item.Count;

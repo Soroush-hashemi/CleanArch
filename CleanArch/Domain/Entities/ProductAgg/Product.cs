@@ -6,10 +6,9 @@ namespace Domain.Entities
 {
     public class Product : AggregateRoot
     {
-        private IDomainService _orderDomainService;
-        private Product(IDomainService orderDomainService)
+        private Product()
         {
-            _orderDomainService = orderDomainService;
+
         }
         // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
@@ -46,16 +45,16 @@ namespace Domain.Entities
             Images.Remove(image);
         }
 
+        public void Remove(long ProductId , IDomainService domainService)
+        {
+            if (domainService.IsProductExist(ProductId) == false)
+                ProductNotFoundException.Check();
+        }
+
         public void Garud(string title, Money price)
         {
             NullOrEmptyException.CheckString(title, "Title");
             NullOrEmptyException.CheckMoney(price, "Price");
-        }
-
-        public void Remove(string title, Money price, long ProductId)
-        {
-            _orderDomainService.IsProductExist(ProductId);
-            Garud(title, price);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Application.Command.Products.Create;
+using Application.Command.Products.Delete;
 using Application.Command.Products.Edit;
 using Application.Query.Products.DTOs;
 using Application.Query.Products.GetList;
@@ -38,5 +39,11 @@ namespace WebApi.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct(DeleteProductCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok();
+        }
     }
 }

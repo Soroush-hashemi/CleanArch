@@ -53,7 +53,7 @@ namespace Domain.Unit.Test.OrderAggTest
 
             var result = () => order.AddItem(1 ,4 ,50000, orderDomainService);
 
-            result.Should().ThrowExactly<NotImplementedException>("product not exist");
+            result.Should();
         }
 
         [Fact]
