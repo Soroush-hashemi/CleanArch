@@ -24,6 +24,7 @@ namespace Application.Command.Orders.Create
             var orderItem = new OrderItem(order.Id, request.Count, order.ProductId, new Money(request.Price));
             _repository.Add(order);
             _orderItemRepository.Add(orderItem);
+            await _orderItemRepository.SaveChanges();
             await _repository.SaveChanges();
             return order.Id;
         }

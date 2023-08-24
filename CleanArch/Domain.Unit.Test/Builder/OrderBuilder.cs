@@ -1,5 +1,6 @@
 ﻿using Domain.Base;
 using Domain.Entities;
+using Domain.Service;
 using NSubstitute;
 
 namespace Domain.Unit.Test.Builder
@@ -24,7 +25,10 @@ namespace Domain.Unit.Test.Builder
 
         public Order CreateOrder()
         {
-            return new Order(1);
+            var userDomainService = Substitute.For<IUserExist>();
+            userDomainService.IsUserExsit(Arg.Any<long>()).Returns(true);
+
+            return new Order(1, userDomainService);
         }
 
         public OrderItem CreateOrderItem()
