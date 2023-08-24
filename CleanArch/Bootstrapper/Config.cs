@@ -16,25 +16,26 @@ using Application.Command.Products.Delete;
 using Domain;
 using Application.Command.DomainService;
 using Domain.Service;
+using Application.Command.Users.Create;
 
 namespace Bootstrapper
 {
     public class Config
     {
         public static void Init(IServiceCollection services, string ConnectionStrings)
-        {
+        { 
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderItemRepository, OrderItemRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IProductExist , ProductExistDomainService>();
-            services.AddTransient<IUserExist , UserExistDomainService>();
+            services.AddTransient<IProductExist, ProductExistDomainService>();
+            services.AddTransient<IUserExist, UserExistDomainService>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DeleteProductCommand).Assembly));
-
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidatorBehavior<,>));
 

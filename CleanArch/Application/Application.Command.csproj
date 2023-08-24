@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Orders\Remove\**" />
     <Compile Remove="Order\**" />
+    <EmbeddedResource Remove="Orders\Remove\**" />
     <EmbeddedResource Remove="Order\**" />
+    <None Remove="Orders\Remove\**" />
     <None Remove="Order\**" />
   </ItemGroup>
 
@@ -19,10 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Orders\Remove\" />
   </ItemGroup>
 
 </Project>
