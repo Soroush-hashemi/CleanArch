@@ -4,7 +4,7 @@ using Infrastructure.Persistence.Ef;
 
 namespace Infrastructure.Repositories;
 
-    public class UserRepository : IUserRepository
+public class UserRepository : IUserRepository
 {
     private AppDbContext _context;
     public UserRepository(AppDbContext context)
@@ -41,5 +41,10 @@ namespace Infrastructure.Repositories;
     public async Task SaveChanges()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public bool IsUserExist(long id)
+    {
+        return _context.Users.Any(f => f.Id == id);
     }
 }

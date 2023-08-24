@@ -6,7 +6,7 @@ namespace Application.Command.Orders.Create
 {
     public class CreateOrderCommand : IRequest<long>
     {
-        public CreateOrderCommand(long userId,Money price , int count)
+        public CreateOrderCommand(long userId, int price, int count)
         {
             UserId = userId;
             Price = price;
@@ -14,7 +14,7 @@ namespace Application.Command.Orders.Create
         }
 
         public long UserId { get; set; }
-        public Money Price { get; set; }
+        public int Price { get; set; }
         public int Count { get; set; }
     }
 }

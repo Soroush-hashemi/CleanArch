@@ -6,17 +6,17 @@ namespace Domain.Unit.Test.Builder
 {
     internal class OrderBuilder
     {
-        public IDomainService CreateOrderDomainServiceReturnTrue()
+        public IProductExist CreateOrderDomainServiceReturnTrue()
         {
-            var orderDomainService = Substitute.For<IDomainService>();
+            var orderDomainService = Substitute.For<IProductExist>();
             orderDomainService.IsProductExist(Arg.Any<long>()).Returns(true); // یعنی محصول وجود دارد
 
             return orderDomainService;
         }
 
-        public IDomainService CreateOrderDomainServiceReturnFalse()
+        public IProductExist CreateOrderDomainServiceReturnFalse()
         {
-            var orderDomainService = Substitute.For<IDomainService>();
+            var orderDomainService = Substitute.For<IProductExist>();
             orderDomainService.IsProductExist(Arg.Any<long>()).Returns(false); // یعنی محصول وجود ندارد
 
             return orderDomainService;

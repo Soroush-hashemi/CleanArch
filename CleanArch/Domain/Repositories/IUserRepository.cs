@@ -9,6 +9,7 @@ namespace Domain.Repositories
         void Add(User user);
         void Update(User user);
         void Remove(User user);
+        bool IsUserExist(long id);
         Task SaveChanges();
     }
 }

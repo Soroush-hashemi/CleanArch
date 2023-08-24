@@ -15,6 +15,7 @@ using Application.Command.SmsService;
 using Application.Command.Products.Delete;
 using Domain;
 using Application.Command.DomainService;
+using Domain.Service;
 
 namespace Bootstrapper
 {
@@ -26,7 +27,8 @@ namespace Bootstrapper
             services.AddTransient<IOrderItemRepository, OrderItemRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IDomainService , DomainService>();
+            services.AddTransient<IProductExist , ProductExistDomainService>();
+            services.AddTransient<IUserExist , UserExistDomainService>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));

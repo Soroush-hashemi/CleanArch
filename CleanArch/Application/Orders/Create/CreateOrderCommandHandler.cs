@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.Base;
 using Domain.Entities;
 using Domain.Repositories;
 using MediatR;
@@ -18,7 +18,7 @@ namespace Application.Command.Orders.Create
         public async Task<long> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var order = new Order(request.UserId);
-            var orderItem = new OrderItem(order.Id , request.Count , order.ProductId , request.Price);
+            var orderItem = new OrderItem(order.Id , request.Count , order.ProductId ,new Money(request.Price));
             _repository.Add(order);
             _orderItemRepository.Add(orderItem);
             await _repository.SaveChanges();

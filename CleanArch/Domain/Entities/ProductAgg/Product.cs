@@ -45,9 +45,10 @@ namespace Domain.Entities
             Images.Remove(image);
         }
 
-        public void Remove(long ProductId)
+        public void Remove(long ProductId, IProductExist domainService) // متد اینجکشن
         {
-            
+            if (domainService.IsProductExist(ProductId) == false)
+                ProductNotFoundException.Check();
         }
 
         public void Garud(string title, Money price)

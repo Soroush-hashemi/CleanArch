@@ -1,6 +1,7 @@
 ﻿using Domain.Base;
 using Domain.Events;
 using Domain.Exception;
+using Domain.Service;
 
 namespace Domain.Entities
 {
@@ -21,7 +22,9 @@ namespace Domain.Entities
 
         public Order(long userId)
         {
+            // user exist
             UserId = userId;
+
             Items = new List<OrderItem>();
         }
 
@@ -32,7 +35,7 @@ namespace Domain.Entities
             AddDomainEvent(new OrderFinalized(Id, UserId));
         }
 
-        public void AddItem(long ProductId, int Count, int Price, IDomainService OrderDomainService) // متد انجکشن
+        public void AddItem(long ProductId, int Count, int Price, IProductExist OrderDomainService) // متد انجکشن
         {
             if (OrderDomainService.IsProductExist(ProductId) == false) // یعنی زمانی که پروداکت وجود ندارد 
                 ProductNotFoundException.Check();
