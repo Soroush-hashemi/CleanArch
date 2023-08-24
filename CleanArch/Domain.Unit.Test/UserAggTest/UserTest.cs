@@ -40,7 +40,7 @@ namespace Domain.Unit.Test.UserAggTest
         {
             var User = _userBuilder.CreateUser("soroush", "hashemi", "Test@gmail.com");
 
-            User.RegisterEvent("soroush", new Email("Test@gmail.com"), "hashemi");
+            User.Register("soroush", "hashemi", new Email("Test@gmail.com"));
 
             User.DomainEvents.Should().HaveCount(1);
         }

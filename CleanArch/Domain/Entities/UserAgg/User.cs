@@ -22,7 +22,7 @@ public class User : AggregateRoot
         Email = email;
     }
 
-    public void RegisterEvent(string name, Email email, string family)
+    public void Register(string name, string family, Email email)
     {
         var User = new User(name, family, email);
         AddDomainEvent(new UserRegistered(User.Id, User.Email));
