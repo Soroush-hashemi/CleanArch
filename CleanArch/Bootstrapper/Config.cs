@@ -17,6 +17,7 @@ using Domain;
 using Application.Command.DomainService;
 using Domain.Service;
 using Application.Command.Users.Create;
+using Application.Command.Users.Edit;
 
 namespace Bootstrapper
 {
@@ -35,6 +36,7 @@ namespace Bootstrapper
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditUserCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DeleteProductCommand).Assembly));
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidatorBehavior<,>));

@@ -14,7 +14,6 @@ namespace Application.Command.Users.Create
                 .MinimumLength(3).WithMessage("نام‌خانوادگی باید حداقل 3 کاراکتر باشد")
                 .MaximumLength(50).WithMessage("نام‌خانوادگی باید حداکثر 50 کاراکتر باشد");
 
-
             RuleFor(n => n.Email)
                 .MinimumLength(10).WithMessage("ایمیل باید حداقل 3 کاراکتر باشد")
                 .MaximumLength(70).WithMessage("ایمیل باید حداکثر 50 کاراکتر باشد");

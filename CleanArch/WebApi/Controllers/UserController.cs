@@ -1,4 +1,5 @@
 ﻿using Application.Command.Users.Create;
+using Application.Command.Users.Edit;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,13 @@ namespace WebApi.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateUser(CreateUserCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> EditUser(EditUserCommand command)
         {
             await _mediator.Send(command);
             return Ok();
