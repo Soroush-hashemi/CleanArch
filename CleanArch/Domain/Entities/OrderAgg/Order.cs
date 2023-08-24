@@ -20,11 +20,11 @@ namespace Domain.Entities
         public int TotalPrice => Items.Sum(r => r.Price.Value);
 
 
-        public Order(long userId)
+        public Order(long userId, IUserExist domainService)
         {
-            // user exist
+            if (domainService.IsUserExsit(userId) is false)
+                UserNotFoundException.Check();
             UserId = userId;
-
             Items = new List<OrderItem>();
         }
 
@@ -37,7 +37,7 @@ namespace Domain.Entities
 
         public void AddItem(long ProductId, int Count, int Price, IProductExist OrderDomainService) // متد انجکشن
         {
-            if (OrderDomainService.IsProductExist(ProductId) == false) // یعنی زمانی که پروداکت وجود ندارد 
+            if (OrderDomainService.IsProductExist(ProductId) is false) // یعنی زمانی که پروداکت وجود ندارد 
                 ProductNotFoundException.Check();
 
             Items.Add(new OrderItem(Id, Count, ProductId, Money.FromTooman(Price)));
