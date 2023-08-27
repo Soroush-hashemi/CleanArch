@@ -10,6 +10,7 @@ namespace Domain.Entities
         {
 
         }
+
         // نباید از بیرون این متغییر ها قابل تغییر باشن پس از پرایوت استفاده میکنم 
         public Money Price { get; private set; }
         public string Title { get; private set; }

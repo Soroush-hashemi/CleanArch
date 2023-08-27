@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Query", "Applic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{EB48ACD9-7AAE-4CC1-BF58-CCD8C253F471}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{4172B5A2-E3B3-477B-AA39-42D16D861D6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bootstrapper", "Bootstrapper\Bootstrapper.csproj", "{4172B5A2-E3B3-477B-AA39-42D16D861D6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadModel", "ReadModel\ReadModel.csproj", "{B4A2E0A8-586B-41FE-A059-0F8D42473E6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{4172B5A2-E3B3-477B-AA39-42D16D861D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4172B5A2-E3B3-477B-AA39-42D16D861D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4172B5A2-E3B3-477B-AA39-42D16D861D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4A2E0A8-586B-41FE-A059-0F8D42473E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A2E0A8-586B-41FE-A059-0F8D42473E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A2E0A8-586B-41FE-A059-0F8D42473E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A2E0A8-586B-41FE-A059-0F8D42473E6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{5F1BCFFE-257E-4488-9D29-161D1C7E5F4D} = {168AC723-3CBC-438C-8DE1-4EA6C83F63E8}
 		{EB48ACD9-7AAE-4CC1-BF58-CCD8C253F471} = {168AC723-3CBC-438C-8DE1-4EA6C83F63E8}
 		{4172B5A2-E3B3-477B-AA39-42D16D861D6B} = {168AC723-3CBC-438C-8DE1-4EA6C83F63E8}
+		{B4A2E0A8-586B-41FE-A059-0F8D42473E6A} = {168AC723-3CBC-438C-8DE1-4EA6C83F63E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B1EC270-333C-49A5-B876-28BBE1F3CE9A}
