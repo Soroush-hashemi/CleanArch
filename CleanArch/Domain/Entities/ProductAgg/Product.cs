@@ -1,5 +1,5 @@
 ﻿using Domain.Base;
-using Domain.Events;
+using Domain.Entities.ProductAgg.Events;
 using Domain.Exception;
 
 namespace Domain.Entities
@@ -30,6 +30,7 @@ namespace Domain.Entities
             Garud(title, price);
             Title = title;
             Price = price;
+            AddDomainEvent(new ProductEdited(Id, $"{title}"));
         }
 
         public void AddImage(string ImageName)

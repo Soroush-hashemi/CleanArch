@@ -1,5 +1,5 @@
 ﻿using Application.Command.SmsService;
-using Domain.Events;
+using Domain.Entities.ProductAgg.Events;
 using MediatR;
 
 namespace Application.Command.EventHandler;

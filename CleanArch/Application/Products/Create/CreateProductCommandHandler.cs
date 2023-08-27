@@ -1,5 +1,6 @@
 ﻿using Domain.Base;
 using Domain.Entities;
+using Domain.Entities.ProductAgg.Events;
 using Domain.Repositories;
 using MediatR;
 
@@ -20,12 +21,7 @@ namespace Application.Command.Products.Create
             var product = new Product(request.Title, Money.FromRial(request.Price));
             _repository.Add(product);
             await _repository.SaveChanges();
-
-            foreach (var Event in product.DomainEvents)
-            {
-                await _mediator.Publish(Event);
-            }
-
+            await _mediator.Publish(new ProductCreated(product.Id, product.Title));
             return product.Id;
         }
     }

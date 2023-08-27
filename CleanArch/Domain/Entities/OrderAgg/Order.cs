@@ -1,5 +1,5 @@
 ﻿using Domain.Base;
-using Domain.Events;
+using Domain.Entities.OrderAgg.Events;
 using Domain.Exception;
 using Domain.Service;
 

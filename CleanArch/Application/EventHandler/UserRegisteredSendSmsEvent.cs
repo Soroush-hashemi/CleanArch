@@ -1,5 +1,5 @@
 ﻿using Application.Command.SmsService;
-using Domain.Events;
+using Domain.Entities.UserAgg.Events;
 
 namespace Application.Command.EventHandler;
 public class UserRegisteredSendSmsEvent

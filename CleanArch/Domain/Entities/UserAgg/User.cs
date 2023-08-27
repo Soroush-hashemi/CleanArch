@@ -1,5 +1,5 @@
 ﻿using Domain.Base;
-using Domain.Events;
+using Domain.Entities.UserAgg.Events;
 using Domain.Exception;
 
 namespace Domain;
