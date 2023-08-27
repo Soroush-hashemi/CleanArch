@@ -8,5 +8,5 @@ public class BaseEntity
     public BaseEntity()
     {
         CreationDate = DateTime.Now;
-    }
+    }  
 }

@@ -18,6 +18,7 @@ using Application.Command.DomainService;
 using Domain.Service;
 using Application.Command.Users.Create;
 using Application.Command.Users.Edit;
+using MongoDB.Driver;
 
 namespace Bootstrapper
 {
@@ -43,6 +44,11 @@ namespace Bootstrapper
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
+
+            services.AddSingleton<IMongoClient, MongoClient>(option =>
+            {
+                return new MongoClient("mongodb://localhost:27017");
+            });
 
             services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
             services.AddValidatorsFromAssembly(typeof(EditProductCommandValidator).Assembly);
