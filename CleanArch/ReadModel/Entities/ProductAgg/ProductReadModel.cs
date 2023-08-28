@@ -6,13 +6,13 @@ namespace ReadModel.Entities.ProductAgg
 {
     public class ProductReadModel : BaseReadModel
     {
-        public MoneyReadModel Price { get; private set; }
-        public string Title { get; private set; }
-        public ICollection<ProductImageReadModel> Images { get; private set; }
+        public MoneyReadModel Price { get; set; }
+        public string Title { get; set; }
+        public ICollection<ProductImageReadModel> ?Images { get; set; }
 
         public ProductReadModel()
         {
-            
+
         }
 
         public void Garud(string title, MoneyReadModel price)

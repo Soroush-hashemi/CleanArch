@@ -1,6 +1,4 @@
 ﻿using Domain.Base;
-using System;
-using System.Collections.Generic;
 
 namespace Domain.Entities.ProductAgg.Events;
 

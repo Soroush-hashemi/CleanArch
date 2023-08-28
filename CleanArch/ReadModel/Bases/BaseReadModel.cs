@@ -6,11 +6,6 @@ namespace ReadModel.Bases
     {
         [BsonId]
         public long Id { get; set; }
-        public DateTime CreationDate { get;}
-
-        public BaseReadModel()
-        {
-            CreationDate = DateTime.Now;
-        }
+        public DateTime CreationDate { get; set; }
     }
 }

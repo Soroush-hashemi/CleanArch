@@ -1,11 +1,12 @@
 ﻿using Application.Query.Products.DTOs;
 using Domain.Entities;
+using ReadModel.Entities.ProductAgg;
 
 namespace Application.Query.Products.Mapper
 {
     public class ProductMapper
     {
-        public static ProductDto MapProductToDto(Product product)
+        public static ProductDto MapProductToDto(ProductReadModel product)
         {
             if (product == null)
                 throw new ArgumentNullException();

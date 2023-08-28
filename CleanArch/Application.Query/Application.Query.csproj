@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\ReadModel\ReadModel.csproj" />
   </ItemGroup>
 
 </Project>
