@@ -19,6 +19,8 @@ using Domain.Service;
 using Application.Command.Users.Create;
 using Application.Command.Users.Edit;
 using MongoDB.Driver;
+using ReadModel.Repositories;
+using ReadInfrastructure.Repositories;
 
 namespace Bootstrapper
 {
@@ -32,6 +34,8 @@ namespace Bootstrapper
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProductExist, ProductExistDomainService>();
             services.AddTransient<IUserExist, UserExistDomainService>();
+
+            services.AddTransient<IProductReadRepository, ProductReadRepository>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));

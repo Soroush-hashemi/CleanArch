@@ -9,7 +9,7 @@ namespace ReadModel.Bases.Repository
         public BaseReadRepository(IMongoClient client)
         {
             var dateBase = client.GetDatabase("cleanArch");
-            _collection = dateBase.GetCollection<TEntity>(nameof(TEntity));
+            _collection = dateBase.GetCollection<TEntity>(typeof(TEntity).Name); // اینجا اسم انتیتی روی کالکشن گذاشته میشه
         }
 
         public async Task<List<TEntity>> GetAll()
