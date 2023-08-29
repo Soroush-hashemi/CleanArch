@@ -20,15 +20,16 @@ namespace Application.Query.EventHandler.Product
         public async Task Handle(ProductCreated notification, CancellationToken cancellationToken)
         {
             var product = await _writeRepository.GetById(notification.Id);
-            await _readRepository.Insert(new ProductReadModel()
+            var ReadProduct = (new ProductReadModel()
             {
-                Id = notification.Id,
+                Id = product.Id,
+                Images = null,
                 Title = product.Title,
                 Price = new MoneyReadModel(product.Price.Value),
-                Images = null,
-                CreationDate = notification.CreationDate,
+                CreationDate = product.CreationDate
             });
+
+            _readRepository.Insert(ReadProduct);
         }
     }
-
 }

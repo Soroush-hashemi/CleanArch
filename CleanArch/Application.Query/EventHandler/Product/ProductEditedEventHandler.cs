@@ -4,7 +4,6 @@ using MediatR;
 using ReadModel.Entities.ProductAgg;
 using ReadModel.Repositories;
 using ReadModel.ValueObject;
-using System;
 
 namespace Application.Query.EventHandler.Product;
 
@@ -21,13 +20,13 @@ public class ProductEditedEventHandler : INotificationHandler<ProductEdited>
     public async Task Handle(ProductEdited notification, CancellationToken cancellationToken)
     {
         var product = await _writeRepository.GetById(notification.Id);
-        await _readRepository.Insert(new ProductReadModel()
+        await _readRepository.Update(new ProductReadModel()
         {
-            Id = notification.Id,
+            Id = product.Id,
             Title = product.Title,
             Price = new MoneyReadModel(product.Price.Value),
             Images = null,
-            CreationDate = notification.CreationDate,
+            CreationDate = product.CreationDate,
         });
     }
 }

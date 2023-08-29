@@ -1,7 +1,6 @@
 ﻿using Domain.Base;
 
 namespace Domain.Entities.ProductAgg.Events;
-
 public class ProductCreated : BaseDomainEvent
 {
     public string Title { get; set; }
