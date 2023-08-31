@@ -21,6 +21,10 @@ using Application.Command.Users.Edit;
 using MongoDB.Driver;
 using ReadModel.Repositories;
 using ReadInfrastructure.Repositories;
+using MongoDB.Bson.Serialization;
+using ReadModel.ValueObject;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Bson;
 
 namespace Bootstrapper
 {
@@ -48,6 +52,12 @@ namespace Bootstrapper
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
+
+            BsonClassMap.RegisterClassMap<MoneyReadModel>(cm =>
+            {
+                cm.MapField(c => c.Value)
+                    .SetSerializer(new Int32Serializer(BsonType.Int32));
+            });
 
             services.AddSingleton<IMongoClient, MongoClient>(option =>
             {

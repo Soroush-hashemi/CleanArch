@@ -1,6 +1,8 @@
-﻿using Domain.Entities.ProductAgg.Events;
+﻿using Application.Query.Products.Mapper;
+using Domain.Entities.ProductAgg.Events;
 using Domain.Repositories;
 using MediatR;
+using MongoDB.Driver;
 using ReadModel.Entities.ProductAgg;
 using ReadModel.Repositories;
 using ReadModel.ValueObject;
@@ -24,9 +26,9 @@ public class ProductEditedEventHandler : INotificationHandler<ProductEdited>
         {
             Id = product.Id,
             Title = product.Title,
-            Price = new MoneyReadModel(product.Price.Value),
-            Images = null,
+            Price = MoneyMapper.FromMoney(product.Price),
             CreationDate = product.CreationDate,
+            Images = product.Images?.Select(ImageMapper.FromProductImage).ToList() // تبدیل تصاویر به لیست ProductImageReadModel
         });
     }
 }

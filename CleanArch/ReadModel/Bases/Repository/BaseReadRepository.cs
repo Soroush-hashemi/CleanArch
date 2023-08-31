@@ -1,4 +1,6 @@
 ﻿using MongoDB.Driver;
+using ReadModel.Entities.ProductAgg;
+using ReadModel.ValueObject;
 
 namespace ReadModel.Bases.Repository
 {

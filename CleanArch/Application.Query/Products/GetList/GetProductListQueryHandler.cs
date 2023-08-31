@@ -1,8 +1,6 @@
 ﻿using Application.Query.Products.DTOs;
 using Application.Query.Products.Mapper;
-using Infrastructure.Persistence.Ef;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using ReadModel.Repositories;
 
 namespace Application.Query.Products.GetList

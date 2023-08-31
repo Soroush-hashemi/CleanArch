@@ -21,7 +21,7 @@ namespace Application.Command.Products.Create
             var product = new Product(request.Title, Money.FromRial(request.Price));
             _repository.Add(product);
             await _repository.SaveChanges();
-            await _mediator.Publish(new ProductCreated(product.Id, product.Title));
+            await _mediator.Publish(new ProductCreated(product.Id, product.Title)); // اینجا میره به کوئری ها و داخل مونگو سیوش میکنه
             return product.Id;
         }
     }

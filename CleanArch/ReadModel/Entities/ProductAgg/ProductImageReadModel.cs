@@ -3,18 +3,12 @@ namespace ReadModel.Entities.ProductAgg
 {
     public class ProductImageReadModel
     {
-        private ProductImageReadModel()
-        {
-
-        }
-        public string ImageName { get; private set; }
-        public long ProductId { get; private set; }
+        public string ImageName { get; set; }
+        public long ProductId { get; set; }
 
         public ProductImageReadModel(long productId, string imageName)
         {
-            // NullOrEmptyException.CheckString(imageName, "ImageName");
-            ProductId = productId;
-            ImageName = imageName;
+
         }
     }
 }

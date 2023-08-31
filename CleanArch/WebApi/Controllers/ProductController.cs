@@ -2,9 +2,11 @@
 using Application.Command.Products.Delete;
 using Application.Command.Products.Edit;
 using Application.Query.Products.DTOs;
+using Application.Query.Products.GetById;
 using Application.Query.Products.GetList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ReadModel.Entities.ProductAgg;
 
 namespace WebApi.Controllers
 {
@@ -25,11 +27,18 @@ namespace WebApi.Controllers
             return await _mediator.Send(new GetProductListQuery());
         }
 
+        [HttpGet("{Id}")]
+        public async Task<ProductDto> GetProduct(long Id)
+        {
+            return await _mediator.Send(new GetProductByIdQuery(Id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
-            await _mediator.Send(command);
-            return Ok();
+            var result = await _mediator.Send(command);
+            var url = Url.Action(nameof(GetProduct), "Product", new { Id = result }, Request.Scheme);
+            return Created(url, result);
         }
 
         [HttpPut]

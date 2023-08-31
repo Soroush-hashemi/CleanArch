@@ -2,7 +2,7 @@
 
 namespace ReadModel.ValueObject
 {
-    public class MoneyReadModel
+    public class MoneyReadModel : BaseValueObject
     {
         private MoneyReadModel()
         {
@@ -14,6 +14,11 @@ namespace ReadModel.ValueObject
             if (Rial < 0)
                 throw new NotImplementedException("money is not valid");
             Value = Rial;
+        }
+
+        public int ToInt()
+        {
+            return Value;
         }
 
         public static MoneyReadModel FromRial(int value)

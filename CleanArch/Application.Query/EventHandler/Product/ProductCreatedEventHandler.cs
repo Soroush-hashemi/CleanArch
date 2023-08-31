@@ -1,4 +1,5 @@
-﻿using Domain.Entities.ProductAgg.Events;
+﻿using Application.Query.Products.Mapper;
+using Domain.Entities.ProductAgg.Events;
 using Domain.Repositories;
 using MediatR;
 using ReadModel.Entities.ProductAgg;
@@ -23,9 +24,9 @@ namespace Application.Query.EventHandler.Product
             var ReadProduct = (new ProductReadModel()
             {
                 Id = product.Id,
-                Images = null,
+                Images = product.Images?.Select(ImageMapper.FromProductImage).ToList(),
                 Title = product.Title,
-                Price = new MoneyReadModel(product.Price.Value),
+                Price = MoneyMapper.FromMoney(product.Price),
                 CreationDate = product.CreationDate
             });
 
