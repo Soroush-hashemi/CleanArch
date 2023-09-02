@@ -4,9 +4,12 @@ using Application.Command.Products.Edit;
 using Application.Query.Products.DTOs;
 using Application.Query.Products.GetById;
 using Application.Query.Products.GetList;
+using AutoMapper;
+using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ReadModel.Entities.ProductAgg;
+using WebApi.ViewModels.Products;
 
 namespace WebApi.Controllers
 {
@@ -14,26 +17,30 @@ namespace WebApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        IMediator _mediator;
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public ProductController(IMediator mediator)
+        public ProductController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<List<ProductDto>> GetProducts()
+        public async Task<List<ProductViewModel>> GetProducts()
         {
-            return await _mediator.Send(new GetProductListQuery());
+            var products = await _mediator.Send(new GetProductListQuery());
+            return _mapper.Map<List<ProductViewModel>>(products).AddLinks();
         }
 
-        [HttpGet("{Id}")]
-        public async Task<ProductDto> GetProduct(long Id)
+        [HttpGet("{Id}")] // اینجا ما دیتا رو از روت یا مسیر دریافت میکنیم
+        public async Task<ProductViewModel> GetProduct(long Id)
         {
-            return await _mediator.Send(new GetProductByIdQuery(Id));
+            var product = await _mediator.Send(new GetProductByIdQuery(Id));
+            return _mapper.Map<ProductViewModel>(product).AddLinks();
         }
 
-        [HttpPost]
+        [HttpPost] // اینجا ما دیتا رو از بادی دریافت میکنیم
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
             var result = await _mediator.Send(command);
@@ -48,7 +55,7 @@ namespace WebApi.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommand command)
         {
             await _mediator.Send(command);
