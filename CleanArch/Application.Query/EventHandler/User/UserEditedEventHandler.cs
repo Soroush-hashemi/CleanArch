@@ -6,7 +6,7 @@ using ReadModel.Repositories;
 
 namespace Application.Query.EventHandler.User
 {
-    public class UserEditedEventHandler : INotificationHandler<UserRegistered>
+    public class UserEditedEventHandler : INotificationHandler<UserEdited>
     {
         private readonly IUserRepository _writeRepository;
         private readonly IUserReadRepository _readRepository;
@@ -16,7 +16,7 @@ namespace Application.Query.EventHandler.User
             _writeRepository = writeRepository;
         }
 
-        public async Task Handle(UserRegistered notification, CancellationToken cancellationToken)
+        public async Task Handle(UserEdited notification, CancellationToken cancellationToken)
         {
             var User = await _writeRepository.GetById(notification.Id);
             await _readRepository.Update(new UserReadModel()

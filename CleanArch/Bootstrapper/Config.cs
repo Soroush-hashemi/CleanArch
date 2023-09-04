@@ -53,12 +53,6 @@ namespace Bootstrapper
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
 
-            BsonClassMap.RegisterClassMap<MoneyReadModel>(cm =>
-            {
-                cm.MapField(c => c.Value)
-                    .SetSerializer(new Int32Serializer(BsonType.Int32));
-            });
-
             services.AddSingleton<IMongoClient, MongoClient>(option =>
             {
                 return new MongoClient("mongodb://localhost:27017");
