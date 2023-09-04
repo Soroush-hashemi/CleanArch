@@ -1,6 +1,4 @@
-﻿using Application.Query.Products.DTOs;
-using Application.Query.Products.GetList;
-using Application.Query.Users.DTOs;
+﻿using Application.Query.Users.DTOs;
 using Application.Query.Users.Mapper;
 using MediatR;
 using ReadModel.Repositories;
