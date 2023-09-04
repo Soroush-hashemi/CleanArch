@@ -2,7 +2,7 @@
 {
     public static class ProductLinkGenerator
     {
-        private static string ProductUrl = "https://localhost:/Product";
+        private static string ProductUrl = "https://localhost:7121/Product";
         public static ProductViewModel AddLinks(this ProductViewModel viewModel)
         { // برای یکی از محصولات لینک میسازه 
 

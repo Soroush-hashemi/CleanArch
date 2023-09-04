@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Domain.Repositories;
 using MediatR;
+using Domain.Entities.UserAgg.Events;
 
 namespace Application.Command.Users.Create
 {
@@ -20,12 +21,7 @@ namespace Application.Command.Users.Create
             User.Register(request.Name, request.Family, new Email(request.Email));
             _repository.Add(User);
             await _repository.SaveChanges();
-
-            foreach (var Event in User.DomainEvents)
-            {
-                await _mediator.Publish(Event);
-            }
-
+            await _mediator.Publish(new UserRegistered(User.Id,User.Email));
             return User.Id;
         }
     }

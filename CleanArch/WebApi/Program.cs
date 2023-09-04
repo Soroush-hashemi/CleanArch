@@ -19,24 +19,24 @@ services.AddSwaggerGen();
 Bootstrapper.Config.Init(builder.Services, builder.Configuration.GetConnectionString("DefaultConnection"));
 var app = builder.Build();
 
-services.AddAuthentication(option =>
-{
-    option.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
-    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(option =>
-{
-    option.TokenValidationParameters = new TokenValidationParameters()
-    {
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:SignInKey"])),
-        ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
-        ValidAudience = builder.Configuration["JwtConfig:Audience"],
-        ValidateLifetime = true,
-        ValidateIssuer = true,
-        ValidateIssuerSigningKey = true,
-        ValidateAudience = true,
-    };
-});
+//services.AddAuthentication(option =>
+//{
+//    option.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+//    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//}).AddJwtBearer(option =>
+//{
+//    option.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:SignInKey"])),
+//        ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
+//        ValidAudience = builder.Configuration["JwtConfig:Audience"],
+//        ValidateLifetime = true,
+//        ValidateIssuer = true,
+//        ValidateIssuerSigningKey = true,
+//        ValidateAudience = true,
+//    };
+//});
 
 // Configure the HTTP request pipeline.
 

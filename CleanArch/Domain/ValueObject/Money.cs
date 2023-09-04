@@ -1,6 +1,4 @@
-﻿using Domain.Exception;
-
-namespace Domain.Base;
+﻿namespace Domain.Base;
 
 public class Money : BaseValueObject
 {

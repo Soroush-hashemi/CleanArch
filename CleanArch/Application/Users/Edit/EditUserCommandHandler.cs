@@ -23,6 +23,7 @@ public class EditUserCommandHandler : IRequestHandler<EditUserCommand, long>
         user.Edit(request.Name, request.Family, new Email(request.Email));
         _repository.Update(user);
         await _repository.SaveChanges();
+    //  event
         return user.Id;
     }
 }

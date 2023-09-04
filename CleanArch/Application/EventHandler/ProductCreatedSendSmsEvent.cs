@@ -5,7 +5,7 @@ using MediatR;
 namespace Application.Command.EventHandler;
 
 public class ProductCreatedSendSmsEvent : INotificationHandler<ProductCreated>
-{
+{   // قبل از رفتن به ایونت ها در کوئری اینجا اجرا میشه
     private ISmsService _smsService;
     public ProductCreatedSendSmsEvent(ISmsService smsService)
     {

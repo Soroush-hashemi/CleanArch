@@ -1,6 +1,6 @@
 ﻿using ReadModel.Bases;
 
-namespace Domain.Exception
+namespace ReadModel.Exception
 {
     public class ProductNotFoundException : BaseReadModelException
     {

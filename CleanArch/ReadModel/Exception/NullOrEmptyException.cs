@@ -2,7 +2,7 @@
 using ReadModel.ValueObject;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Domain.Exception
+namespace ReadModel.Exception
 {
     public class NullOrEmptyException : BaseReadModelException
     {

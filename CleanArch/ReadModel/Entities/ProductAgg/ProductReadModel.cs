@@ -1,4 +1,4 @@
-﻿using Domain.Exception;
+﻿using ReadModel.Exception;
 using ReadModel.Bases;
 using ReadModel.ValueObject;
 

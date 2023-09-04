@@ -51,6 +51,7 @@ namespace Domain.Entities
         {
             if (domainService.IsProductExist(ProductId) == false)
                 ProductNotFoundException.Check();
+            AddDomainEvent(new ProductDeleted(Id));
         }
 
         public void Garud(string title, Money price)

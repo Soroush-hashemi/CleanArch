@@ -34,6 +34,7 @@ public class User : AggregateRoot
         Name = name;
         Family = family;
         Email = email;
+        AddDomainEvent(new UserEdited(Id , email));
     }
 
     public void Garud(string name, string family)
