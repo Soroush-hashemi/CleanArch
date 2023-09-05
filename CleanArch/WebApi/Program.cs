@@ -17,7 +17,6 @@ services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
 Bootstrapper.Config.Init(builder.Services, builder.Configuration.GetConnectionString("DefaultConnection"));
-var app = builder.Build();
 
 services.AddAuthentication(option =>
 {
@@ -37,6 +36,8 @@ services.AddAuthentication(option =>
         ValidateAudience = true,
     };
 });
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 

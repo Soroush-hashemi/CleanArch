@@ -15,7 +15,7 @@ public class EditUserCommandValidator : AbstractValidator<EditUserCommand>
             .MaximumLength(50).WithMessage("نام‌خانوادگی باید حداکثر 50 کاراکتر باشد");
 
         RuleFor(n => n.Email)
-            .MinimumLength(10).WithMessage("ایمیل باید حداقل 3 کاراکتر باشد")
+            .MinimumLength(10).WithMessage("ایمیل باید حداقل 10 کاراکتر باشد")
             .MaximumLength(70).WithMessage("ایمیل باید حداکثر 50 کاراکتر باشد");
     }
 }

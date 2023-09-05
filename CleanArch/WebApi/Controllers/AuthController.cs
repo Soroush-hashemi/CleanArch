@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("{Id}")] 
+        [HttpGet("{Id}")]
         public async Task<UserViewModel> GetUser(long Id)
         {
             var user = await _mediator.Send(new GetUserByIdQuery(Id));
@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> CreateUser(CreateUserCommand command)
         {
             var result = await _mediator.Send(command);
-            var url = Url.Action(nameof(GetUser), "User", new { Id = result }, Request.Scheme);
+            var url = Url.Action(nameof(GetUser), "Auth", new { Id = result }, Request.Scheme);
             return Created(url, result);
         }
 

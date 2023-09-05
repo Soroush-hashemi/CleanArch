@@ -21,52 +21,50 @@ using Application.Command.Users.Edit;
 using MongoDB.Driver;
 using ReadModel.Repositories;
 using ReadInfrastructure.Repositories;
-using MongoDB.Bson.Serialization;
-using ReadModel.ValueObject;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Bson;
+using Application.Query.Users.GetById;
 
-namespace Bootstrapper
+namespace Bootstrapper;
+public class Config
 {
-    public class Config
+    public static void Init(IServiceCollection services, string ConnectionStrings)
     {
-        public static void Init(IServiceCollection services, string ConnectionStrings)
-        { 
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IOrderItemRepository, OrderItemRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IProductExist, ProductExistDomainService>();
-            services.AddTransient<IUserExist, UserExistDomainService>();
+        services.AddTransient<IOrderRepository, OrderRepository>();
+        services.AddTransient<IOrderItemRepository, OrderItemRepository>();
+        services.AddTransient<IProductRepository, ProductRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IProductExist, ProductExistDomainService>();
+        services.AddTransient<IUserExist, UserExistDomainService>();
 
-            services.AddTransient<IProductReadRepository, ProductReadRepository>();
+        services.AddTransient<IProductReadRepository, ProductReadRepository>();
+        services.AddTransient<IUserReadRepository, UserReadRepository>();
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditUserCommand).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DeleteProductCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditProductCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(EditUserCommand).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DeleteProductCommand).Assembly));
 
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidatorBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidatorBehavior<,>));
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductListQuery).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetProductByIdQuery).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetUserByIdQuery).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetUserByIdQuery).Assembly));
 
-            services.AddSingleton<IMongoClient, MongoClient>(option =>
-            {
-                return new MongoClient("mongodb://localhost:27017");
-            });
+        services.AddSingleton<IMongoClient, MongoClient>(option =>
+        {
+            return new MongoClient("mongodb://localhost:27017");
+        });
 
-            services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
-            services.AddValidatorsFromAssembly(typeof(EditProductCommandValidator).Assembly);
+        services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
+        services.AddValidatorsFromAssembly(typeof(EditProductCommandValidator).Assembly);
 
-            services.AddDbContext<AppDbContext>(option =>
-            {
-                option.UseSqlServer(ConnectionStrings);
-            });
+        services.AddDbContext<AppDbContext>(option =>
+        {
+            option.UseSqlServer(ConnectionStrings);
+        });
 
-            services.AddScoped<ISmsService, SmsService>();
-        }
+        services.AddScoped<ISmsService, SmsService>();
     }
 }

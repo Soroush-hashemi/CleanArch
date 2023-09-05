@@ -24,7 +24,7 @@ public class EditUserCommandHandler : IRequestHandler<EditUserCommand, long>
         user.Edit(request.Name, request.Family, new Email(request.Email));
         _repository.Update(user);
         await _repository.SaveChanges();
-        await _mediator.Publish(new UserEdited(user.Id, user.Email));
+        await _mediator.Publish(new UserEdited(user.Id, user.Email.EmailAddress));
         return user.Id;
     }
 }

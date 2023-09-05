@@ -15,7 +15,7 @@ public class UserMapper
             Id = user.Id,
             Name = user.Name,
             Family = user.Family,
-            Email = new Email(user.Email)
+            Email = user.Email
         };
     }
 }

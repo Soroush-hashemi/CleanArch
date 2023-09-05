@@ -12,7 +12,6 @@ public static class UserLinkGenerator
         var links = new List<LinkDto>()
             {
                 new LinkDto(AuthUrl,"update_auth",HttpMethod.Put.Method),
-                new LinkDto($"{AuthUrl}/{viewModel.Id}","delete_auth",HttpMethod.Delete.Method),
             };
         viewModel.Links.AddRange(links);
         return viewModel;
@@ -27,7 +26,6 @@ public static class UserLinkGenerator
             var links = new List<LinkDto>()
             {
                     new LinkDto(AuthUrl,"update_auth",HttpMethod.Put.Method),
-                    new LinkDto($"{AuthUrl}/{item.Id}","delete_auth",HttpMethod.Delete.Method),
                     new LinkDto($"{AuthUrl}/{item.Id}","self",HttpMethod.Get.Method),
             };
             item.Links.AddRange(links);

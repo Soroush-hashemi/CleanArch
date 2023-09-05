@@ -5,9 +5,9 @@ using ReadModel.Repositories;
 
 namespace ReadInfrastructure.Repositories;
 
-public class UserReadReepository : BaseReadRepository<UserReadModel>, IUserReadRepository
+public class UserReadRepository : BaseReadRepository<UserReadModel>, IUserReadRepository
 {
-    public UserReadReepository(IMongoClient client) : base(client)
+    public UserReadRepository(IMongoClient client) : base(client)
     {
 
     }
