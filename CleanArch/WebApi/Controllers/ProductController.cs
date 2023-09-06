@@ -7,6 +7,7 @@ using Application.Query.Products.GetList;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReadModel.Entities.ProductAgg;
 using WebApi.ViewModels.Products;
@@ -34,6 +35,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{Id}")] // اینجا ما دیتا رو از روت یا مسیر دریافت میکنیم
+        [Authorize]
         public async Task<ProductViewModel> GetProduct(long Id)
         {
             var product = await _mediator.Send(new GetProductByIdQuery(Id));
@@ -41,6 +43,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost] // اینجا ما دیتا رو از بادی دریافت میکنیم
+        [Authorize]
         public async Task<IActionResult> CreateProduct(CreateProductCommand command)
         {
             var result = await _mediator.Send(command);
