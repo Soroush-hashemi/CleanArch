@@ -11,4 +11,9 @@ public class UserReadRepository : BaseReadRepository<UserReadModel>, IUserReadRe
     {
 
     }
+
+    public async Task<UserReadModel> GetByEmail(string email)
+    {
+        return await _collection.Find(f => f.Email == email).FirstOrDefaultAsync();
+    }
 }

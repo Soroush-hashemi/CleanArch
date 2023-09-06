@@ -1,10 +1,15 @@
 ﻿using Application.Command.Users.Create;
 using Application.Command.Users.Edit;
+using Application.Query.Users.GetByEmail;
 using Application.Query.Users.GetById;
 using Application.Query.Users.GetList;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using WebApi.ViewModels.Users;
 
 namespace WebApi.Controllers
@@ -15,10 +20,13 @@ namespace WebApi.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        public AuthController(IMediator mediator, IMapper mapper)
+        private readonly IConfiguration _configuration;
+
+        public AuthController(IMediator mediator, IMapper mapper, IConfiguration configuration)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
         [HttpGet("{Id}")]
@@ -48,6 +56,36 @@ namespace WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok();
+        }
+
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            var user = await _mediator.Send(new GetUserByEmailQuery(email));
+            if (user == null)
+                return NotFound("کاربری با مشخصات وارد شده یافت نشد");
+
+            if (user.Name != password)
+                return NotFound("کاربری با مشخصات وارد شده یافت نشد");
+
+            var claims = new List<Claim>()
+            {
+                new Claim("email",user.Email),
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+            };
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtConfig:SignInKey"]));
+            var credential = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JwtConfig:Issuer"],
+                audience: _configuration["JwtConfig:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddDays(7),
+                signingCredentials: credential);
+
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+            return Ok(jwtToken);
         }
     }
 }

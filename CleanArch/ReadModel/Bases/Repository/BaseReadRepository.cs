@@ -1,12 +1,10 @@
 ﻿using MongoDB.Driver;
-using ReadModel.Entities.ProductAgg;
-using ReadModel.ValueObject;
 
 namespace ReadModel.Bases.Repository
 {
     public class BaseReadRepository<TEntity> : IBaseReadRepository<TEntity> where TEntity : BaseReadModel
     {
-        private readonly IMongoCollection<TEntity> _collection;
+        public readonly IMongoCollection<TEntity> _collection;
         public BaseReadRepository(IMongoClient client)
         {
             var dateBase = client.GetDatabase("cleanArch");

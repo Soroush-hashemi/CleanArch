@@ -1,10 +1,8 @@
 ﻿using ReadModel.Bases.Repository;
 using ReadModel.Entities.UserAgg;
 
-namespace ReadModel.Repositories
+namespace ReadModel.Repositories;
+public interface IUserReadRepository : IBaseReadRepository<UserReadModel>
 {
-    public interface IUserReadRepository : IBaseReadRepository<UserReadModel>
-    {
-
-    }
+    Task<UserReadModel> GetByEmail(string email);
 }
